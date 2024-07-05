@@ -1,13 +1,80 @@
 body {
-    margin: 0;
+  margin: 0;
     font-family: "Montserrat", sans-serif;
     background-color: #676767;
+    background-blend-mode: multiply;
+    min-block-size: 100dvh;
+    display: grid;
+    place-items: center;;
   }
+  .card {
+
+    width: 200px;
+    height: 120px;
+    padding: 0.5rem;
+    
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+    border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+    box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.280);
+    transform: skewX(10deg);
+    transition: .4s;
+    overflow: hidden;
+    color: white;
+  }
+  
+  .card:hover {
+    height: 364px;
+    transform: skew(0deg);
+  }
+  
+  .align {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    align-self: flex-start;
+  }
+  
+  .red {
+  
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: transparent;
+    /* box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280); */
+  }
+  
+  /* .yellow {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ffbd44;
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+  } */
+  
+  .green {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: transparent;
+    /* box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280); */
+  }
+  
+  .card h1 {
+    text-align: center;
+    margin: 1.3rem;
+    color: rgb(218, 244, 237);
+    text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+  }
+  
+  
   section{
     display: grid;
     place-items: center;
     align-content: center;
-    min-height: 170vh;
+    min-height: 100vh;
     font-size: 3em;
   }
   
