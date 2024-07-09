@@ -1,4 +1,4 @@
-from flask import Flask,request, url_for, redirect, render_template
+from flask import Flask, jsonify,request, url_for, redirect, render_template
 import pickle
 import numpy as np
 import pandas as pd
@@ -33,30 +33,41 @@ def prediction(driver_name, grid, circuit_loc):
         
     }
     features = pd.DataFrame([features])
-    return model.predict(features), model.predict_proba(features)
-
+    predi = model.predict(features)
+    prob= model.predict_proba(features)
+    return predi,prob
 @app.route('/')
 def hello_world():
     return render_template("index.html")
 
 @app.route('/predict',methods=['POST','GET'])
 def predict():
-    selected_drivers = request.form.get('selected-drivers')
-    circuit_loc = request.form.get('circuit')
+    
+    winvision = pd.read_csv(r"winvision.csv")
+    drivers = pd.read_csv(r"drivers.csv")
+    drivers['Name'] = drivers['forename'] + ' ' + drivers['surname']
+    circuits = pd.read_csv(r"archive/circuits.csv")
+    # selected_drivers = request.form.get('selected-drivers')
+    # circuit_loc = request.form.get('circuit')
     grids = list(range(1, 21))
-    drivers_list = selected_drivers.split(',')
+    # drivers_list = selected_drivers.split(',')
     predictions = []
+    data = request.get_json(force=True)
+    
+    # Extract the inputs
+    drivers_list = data['drivers_list']
+    circuit_loc = data['circuit_loc']
 
-    for driver_name, grid in zip(selected_drivers, grids):
+    for driver_name, grid in zip(drivers_list, grids):
         predi, prob = prediction(driver_name, grid, circuit_loc)
         if predi in [1, 2, 3]:
-            predictions.append({
-                'Driver Name ': driver_name,
-                'Grid': grid,
-                'Prediction': predi,
-                'Probability': np.max(prob)*100
-                })
-    return predictions
+            predictions.append(f"Driver Name: {driver_name}, Grid: {grid}, Prediction: {predi}, Probability: {np.max(prob) * 100}%")
+            print(predictions)
+        
+    response_text = "\n".join(predictions)
+    
+    # Send back the prediction as a JSON response
+    return response_text
     #return render_template("index.html",pred="predicted Race results {}".format(predictions))
 
 if __name__ == '__main__':
