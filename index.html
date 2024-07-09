@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div style="margin-bottom:100px;">
-      <label for="f1-racers">Drivers:</label>
-      <select id="f1-racers" name="f1-racers">
+    <form action="/predict" method="post">
+      <div style="margin-bottom: 100px;">
+        <label for="f1-racers">Drivers:</label>
+        <select id="f1-racers" name="f1-racers">
           <option value="george-russell">George Russell</option>
           <option value="lando-norris">Lando Norris</option>
           <option value="oscar-piastri">Oscar Piastri</option>
@@ -28,22 +29,25 @@
           <option value="esteban-ocon">Esteban Ocon</option>
           <option value="max-verstappen">Max Verstappen</option>
           <option value="nico-hulkenberg">Nico Hülkenberg</option>
-      </select>
-      <button onclick="addDriver()">Add Driver</button>
-      <button onclick="displayDrivers()">Display Drivers</button>
-      <div  style="display: block;">
-        <label>Circuit:</label>
-      <input type="text" id="circuit">
+        </select>
+        <button type="button" onclick="addDriver()">Add Driver</button>
+        <button type="button" onclick="displayDrivers()">Display Drivers</button>
+        <div style="display: block;">
+          <label for="circuit">Circuit:</label>
+          <input type="text" id="circuit" name="circuit" />
+        </div>
+        <input type="hidden" id="selected-drivers-input" name="selected-drivers" />
+        <button type="submit" class="btn-large waves-effect waves-light orange">
+          Predict Probability
+        </button>
       </div>
-      
-  </div>
-  
+    </form>
 
-  <div id="selected-drivers" style="margin-bottom: 1000px;">
+    <div id="selected-drivers" style="margin-bottom: 1000px;">
       <h3>Selected Drivers:</h3>
       <ul id="drivers-list"></ul>
       <p id="selected-circuit"></p>
-  </div>
+    </div>
 
   <script>
       const selectedDrivers = [];
@@ -75,6 +79,7 @@
             });
 
             circuitElement.textContent = `Selected Circuit: ${circuitInput}`;
+            console.log(selectedDrivers);
         }
         // selectedDrivers stores the grid positions
         //circuitInput stores circuit
