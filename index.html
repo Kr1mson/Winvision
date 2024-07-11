@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form action="/predict" method="post">
+    <form id="prediction-form" onsubmit="sendtoapi(event)">
       <div style="margin-bottom: 100px;">
         <label for="f1-racers">Drivers:</label>
         <select id="f1-racers" name="f1-racers">
@@ -31,15 +31,15 @@
           <option value="nico-hulkenberg">Nico Hülkenberg</option>
         </select>
         <button type="button" onclick="addDriver()">Add Driver</button>
-        <button type="button" onclick="displayDrivers()">Display Drivers</button>
-        <div style="display: block;">
-          <label for="circuit">Circuit:</label>
-          <input type="text" id="circuit" name="circuit" />
-        </div>
-        <input type="hidden" id="selected-drivers-input" name="selected-drivers" />
-        <button type="submit" class="btn-large waves-effect waves-light orange">
-          Predict Probability
-        </button>
+            <button type="button" onclick="displayDrivers()">Display Drivers</button>
+            <div style="display: block;">
+                <label for="circuit">Circuit:</label>
+                <input type="text" id="circuit" name="circuit" />
+            </div>
+            <input type="hidden" id="selected-drivers-input" name="selected-drivers" />
+            <button type="submit" class="btn-large waves-effect waves-light orange">
+                Predict Probability
+            </button>
       </div>
     </form>
 
@@ -48,6 +48,10 @@
       <ul id="drivers-list"></ul>
       <p id="selected-circuit"></p>
     </div>
+    <div id="prediction-results">
+      <h3>Prediction Results:</h3>
+      <ul id="results-list"></ul>
+  </div>
 
   <script>
       const selectedDrivers = [];
@@ -81,8 +85,43 @@
             circuitElement.textContent = `Selected Circuit: ${circuitInput}`;
             console.log(selectedDrivers);
         }
+
         // selectedDrivers stores the grid positions
         //circuitInput stores circuit
+        function sendtoapi(event) {
+          event.preventDefault();
+          const circuitInput = document.getElementById('circuit').value;
+          document.getElementById('selected-drivers-input').value = JSON.stringify(selectedDrivers);
+          const selectedDriversInput = selectedDrivers;
+
+          fetch('http://127.0.0.1:5000/predict', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ selectedDrivers: selectedDriversInput, circuit: circuitInput }),
+          })
+          .then((response) => response.json())
+          .then((data) => {
+              displayResults(data);
+          })
+          .catch((error) => {
+              console.error('Error:', error);
+          });
+      }
+
+      function displayResults(results) {
+          const resultsListElement = document.getElementById('results-list');
+          resultsListElement.innerHTML = '';
+
+          results.forEach((result) => {
+              const listItem = document.createElement('li');
+              listItem.textContent = result;
+              resultsListElement.appendChild(listItem);
+          });
+      }
+      
+  
   </script>
     
     <div class="card">
