@@ -52,7 +52,7 @@ def predict():
     circuits = pd.read_csv(r"archive/circuits.csv")
     # selected_drivers = request.form.get('selected-drivers')
     # circuit_loc = request.form.get('circuit')
-    grids = list(range(1, 21))
+    grids = list(range(1, 22))
     # drivers_list = selected_drivers.split(',')
     predictions = []
     # data = request.get_json(force=True)
