@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div style="margin-bottom:100px;">
-      <label for="f1-racers">Drivers:</label>
-      <select id="f1-racers" name="f1-racers">
+    <form id="prediction-form" onsubmit="sendtoapi(event)">
+      <div style="margin-bottom: 100px;">
+        <label for="f1-racers">Drivers:</label>
+        <select id="f1-racers" name="f1-racers">
           <option value="george-russell">George Russell</option>
           <option value="lando-norris">Lando Norris</option>
           <option value="oscar-piastri">Oscar Piastri</option>
@@ -28,21 +29,29 @@
           <option value="esteban-ocon">Esteban Ocon</option>
           <option value="max-verstappen">Max Verstappen</option>
           <option value="nico-hulkenberg">Nico Hülkenberg</option>
-      </select>
-      <button onclick="addDriver()">Add Driver</button>
-      <button onclick="displayDrivers()">Display Drivers</button>
-      <div  style="display: block;">
-        <label>Circuit:</label>
-      <input type="text" id="circuit">
+          <option value="guanyu-zhou">Guanyu Zhou</option>
+        </select>
+        <button type="button" onclick="addDriver()">Add Driver</button>
+            <button type="button" onclick="displayDrivers()">Display Drivers</button>
+            <div style="display: block;">
+                <label for="circuit">Circuit:</label>
+                <input type="text" id="circuit" name="circuit" />
+            </div>
+            <input type="hidden" id="selected-drivers-input" name="selected-drivers" />
+            <button type="submit" class="btn-large waves-effect waves-light orange">
+                Predict Probability
+            </button>
       </div>
-      
-  </div>
-  
+    </form>
 
-  <div id="selected-drivers" style="margin-bottom: 1000px;">
+    <div id="selected-drivers" style="margin-bottom: 1000px;">
       <h3>Selected Drivers:</h3>
       <ul id="drivers-list"></ul>
       <p id="selected-circuit"></p>
+    </div>
+    <div id="prediction-results">
+      <h3>Prediction Results:</h3>
+      <ul id="results-list"></ul>
   </div>
 
   <script>
@@ -75,9 +84,45 @@
             });
 
             circuitElement.textContent = `Selected Circuit: ${circuitInput}`;
+            console.log(selectedDrivers);
         }
+
         // selectedDrivers stores the grid positions
         //circuitInput stores circuit
+        function sendtoapi(event) {
+          event.preventDefault();
+          const circuitInput = document.getElementById('circuit').value;
+          document.getElementById('selected-drivers-input').value = JSON.stringify(selectedDrivers);
+          const selectedDriversInput = selectedDrivers;
+
+          fetch('http://127.0.0.1:5000/predict', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ selectedDrivers: selectedDriversInput, circuit: circuitInput }),
+          })
+          .then((response) => response.json())
+          .then((data) => {
+              displayResults(data);
+          })
+          .catch((error) => {
+              console.error('Error:', error);
+          });
+      }
+
+      function displayResults(results) {
+          const resultsListElement = document.getElementById('results-list');
+          resultsListElement.innerHTML = '';
+
+          results.forEach((result) => {
+              const listItem = document.createElement('li');
+              listItem.textContent = result;
+              resultsListElement.appendChild(listItem);
+          });
+      }
+      
+  
   </script>
     
     <div class="card">
@@ -102,10 +147,10 @@
         WinVision
     </h2>
     <section class = "hidden">
-      <h1>testing transitions</h1>
+      <h1>testing model</h1>
     </section>
     <section class = "hidden">
-        Welcome to WinVision ola jente
+        Welcome to WinVision
     </section>
     <section class = "hidden">
         <div id="container3D"></div>
