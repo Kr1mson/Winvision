@@ -5,25 +5,29 @@ body {
     background-blend-mode: multiply;
     min-block-size: 100dvh;
     display: grid;
-    place-items: center;;
+    place-items: center;
+  }
+  .cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Aligns items to the start of the container */
+    gap: 20px; /* Adjusts the space between the cards */
   }
   .card {
 
     width: 200px;
     height: 120px;
     padding: 0.5rem;
-    
     border-radius: 8px;
     backdrop-filter: blur(5px);
     border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-    border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+    border-left: 2px  rgba(255, 255, 255, 0.545);
     box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.280);
     transform: skewX(10deg);
     transition: .4s;
     overflow: hidden;
     color: white;
   }
-  
   .card:hover {
     height: 364px;
     transform: skew(0deg);

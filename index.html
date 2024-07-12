@@ -115,34 +115,60 @@
           const resultsListElement = document.getElementById('results-list');
           resultsListElement.innerHTML = '';
 
-          results.forEach((result) => {
-              const listItem = document.createElement('li');
-              listItem.textContent = result;
-              resultsListElement.appendChild(listItem);
-          });
+          const card1 = document.getElementById('card1');
+    if (card1 && results[2]) {
+        card1.querySelector('p').textContent = results[2];
+    }
+
+    // Update the content of the second card
+    const card2 = document.getElementById('card2');
+    if (card2 && results[1]) {
+        card2.querySelector('p').textContent = results[1];
+    }
+
+    // Update the content of the third card
+    const card3 = document.getElementById('card3');
+    if (card3 && results[0]) {
+        card3.querySelector('p').textContent = results[0];
+    }
       }
+      
       
   
   </script>
     
-    <div class="card">
-      
+
+<div class="cards-container">
+  <div class="card" id="card2">
       <div class="align">
-          <span class="red">
-            <h3>LEC</h3>
-          </span>
+          <span class="red"><h3></h3></span>
           <span class="yellow"></span>
-          <span class="green">
-            <h4>1ST</h4>
-          </span>
+          <span class="green"><h4>2ND</h4></span>
       </div>
-      
-  
       <h1>HOVER ME</h1>
-      <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde explicabo enim rem odio assumenda?
-      </p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
   </div>
+
+  <div class="card" id="card1">
+      <div class="align">
+          <span class="red"><h3></h3></span>
+          <span class="yellow"></span>
+          <span class="green"><h4>1ST</h4></span>
+      </div>
+      <h1>HOVER ME</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  </div>
+
+  <div class="card" id="card3">
+      <div class="align">
+          <span class="red"><h3></h3></span>
+          <span class="yellow"></span>
+          <span class="green"><h4>3RD</h4></span>
+      </div>
+      <h1>HOVER ME</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  </div>
+</div>
     <h2>
         WinVision
     </h2>
