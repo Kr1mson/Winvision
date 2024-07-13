@@ -200,20 +200,47 @@ function displayResults(results) {
   results.forEach(result => {
       const parts = result.split(', ');
       const namePart = parts[0].split(': ')[1];
-      const predictionPart = parts[2].split(': ')[1];
+      const gridPart = parts[1].split(': ')[1];
+      const predictionPart = parts[2].split(': ')[1].match(/\d+/)[0];
       const probabilityPart = parts[3].split(': ')[1];
 
+      let predictionPosition;
+      switch (predictionPart) {
+          case '1':
+              predictionPosition = '1st';
+              break;
+          case '2':
+              predictionPosition = '2nd';
+              break;
+          case '3':
+              predictionPosition = '3rd';
+              break;
+          default:
+              predictionPosition = `${predictionPart}th`;
+      }
+
+      const formattedText = `
+          ${namePart}<br>
+          Grid: ${gridPart}<br>
+          Predicted pos: ${predictionPosition}<br>
+          Probability: ${probabilityPart}
+      `;
+
       const lastName = namePart.split(' ').pop().toLowerCase();
-      const prediction = parseInt(predictionPart.match(/\d+/)[0]);
+      const last3letters = lastName.substring(0, 3).toUpperCase();
+      const prediction = parseInt(predictionPart);
 
       if (prediction === 1) {
-        card1.querySelector('p').textContent = results[2];
+          card1.querySelector('p').innerHTML = formattedText;
+          card1.querySelector("h3").textContent = last3letters;
           card1.style.backgroundImage = `url('f1_photos/driver photos/${lastName}.jpg')`;
       } else if (prediction === 2) {
-        card2.querySelector('p').textContent = results[1];
+          card2.querySelector('p').innerHTML = formattedText;
+          card2.querySelector("h3").textContent = last3letters;
           card2.style.backgroundImage = `url('f1_photos/driver photos/${lastName}.jpg')`;
       } else if (prediction === 3) {
-        card3.querySelector('p').textContent = results[0];
+          card3.querySelector('p').innerHTML = formattedText;
+          card3.querySelector("h3").textContent = last3letters;
           card3.style.backgroundImage = `url('f1_photos/driver photos/${lastName}.jpg')`;
       }
   });

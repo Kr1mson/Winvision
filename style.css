@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'F1';
+  src: url('fonts/Formula1-Regular.ttf') format('truetype');
+}
+
+
 body {
   margin: 0;
     font-family: "Montserrat", sans-serif;
@@ -12,6 +18,7 @@ body {
     flex-direction: row;
     justify-content: flex-start; /* Aligns items to the start of the container */
     gap: 20px; /* Adjusts the space between the cards */
+    font-family: 'F1', sans-serif;
   }
   .card {
     background-size: cover;
@@ -28,6 +35,22 @@ body {
     transition: .4s;
     overflow: hidden;
     color: white;
+    font-family: 'F1', sans-serif;
+  }
+
+.card p {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.card:hover p {
+    opacity: 1;
   }
   .card:hover {
     height: 364px;
