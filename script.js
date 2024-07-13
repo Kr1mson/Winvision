@@ -92,6 +92,102 @@ const observer = new IntersectionObserver((entries)=>{
 const hiddenElements = document.querySelectorAll(".hidden");
 hiddenElements.forEach((el)=> observer.observe(el));
 
+// script.js
+const selectedDrivers = [];
+const maxDrivers = 20;
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  const yourButtonElement = document.getElementById('addbtn'); // Make sure to add an ID to your button
+  if (yourButtonElement) {
+    yourButtonElement.addEventListener('click', addDriver);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  const yourButtonElement = document.getElementById('displaybtn'); // Make sure to add an ID to your button
+  if (yourButtonElement) {
+    yourButtonElement.addEventListener('click', displayDrivers);
+  }
+});
+document.addEventListener('DOMContentLoaded', (event) => {
+  const yourButtonElement = document.getElementById('prediction-form'); // Make sure to add an ID to your button
+  if (yourButtonElement) {
+    yourButtonElement.addEventListener('submit', sendtoapi);
+  }
+});
+
+function addDriver() {
+    const selectElement = document.getElementById('f1-racers');
+    const selectedDriver = selectElement.options[selectElement.selectedIndex].text;
+
+    if (selectedDrivers.length < maxDrivers) {
+        selectedDrivers.push(selectedDriver);
+        alert(`${selectedDriver} added to the list.`);
+    } else {
+        alert('Maximum number of drivers selected.');
+    }
+}
+
+function displayDrivers() {
+    const driversListElement = document.getElementById('drivers-list');
+    const circuitElement = document.getElementById('selected-circuit');
+    const circuitInput = document.getElementById('circuit').value;
+
+    driversListElement.innerHTML = '';
+
+    selectedDrivers.forEach((driver, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `POS ${index + 1}: ${driver}`;
+        driversListElement.appendChild(listItem);
+    });
+
+    circuitElement.textContent = `Selected Circuit: ${circuitInput}`;
+    console.log(selectedDrivers);
+}
+
+function sendtoapi(event) {
+    event.preventDefault();
+    const circuitInput = document.getElementById('circuit').value;
+    document.getElementById('selected-drivers-input').value = JSON.stringify(selectedDrivers);
+    const selectedDriversInput = selectedDrivers;
+
+    fetch('http://127.0.0.1:5000/predict', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ selectedDrivers: selectedDriversInput, circuit: circuitInput }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        displayResults(data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
+function displayResults(results) {
+  const resultsListElement = document.getElementById('results-list');
+  resultsListElement.innerHTML = '';
+
+  const card1 = document.getElementById('card1');
+if (card1 && results[2]) {
+card1.querySelector('p').textContent = results[2];
+}
+
+// Update the content of the second card
+const card2 = document.getElementById('card2');
+if (card2 && results[1]) {
+card2.querySelector('p').textContent = results[1];
+}
+
+// Update the content of the third card
+const card3 = document.getElementById('card3');
+if (card3 && results[0]) {
+card3.querySelector('p').textContent = results[0];
+}
+}
 
 
 
