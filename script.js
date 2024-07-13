@@ -97,22 +97,22 @@ const selectedDrivers = [];
 const maxDrivers = 20;
 
 document.addEventListener('DOMContentLoaded', (event) => {
-  const yourButtonElement = document.getElementById('addbtn'); // Make sure to add an ID to your button
+  const yourButtonElement = document.getElementById('addbtn');
   if (yourButtonElement) {
     yourButtonElement.addEventListener('click', addDriver);
   }
 });
 
 document.addEventListener('DOMContentLoaded', (event) => {
-  const yourButtonElement = document.getElementById('displaybtn'); // Make sure to add an ID to your button
+  const yourButtonElement = document.getElementById('displaybtn');
   if (yourButtonElement) {
     yourButtonElement.addEventListener('click', displayDrivers);
   }
 });
 document.addEventListener('DOMContentLoaded', (event) => {
-  const yourButtonElement = document.getElementById('prediction-form'); // Make sure to add an ID to your button
-  if (yourButtonElement) {
-    yourButtonElement.addEventListener('submit', sendtoapi);
+  const form_submit = document.getElementById('prediction-form');
+  if (form_submit) {
+    form_submit.addEventListener('submit', sendtoapi);
   }
 });
 
