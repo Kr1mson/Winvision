@@ -19,6 +19,7 @@ body {
     justify-content: flex-start; /* Aligns items to the start of the container */
     gap: 20px; /* Adjusts the space between the cards */
     font-family: 'F1', sans-serif;
+    visibility: hidden;
   }
   .card {
     background-size: cover;

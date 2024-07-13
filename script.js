@@ -196,6 +196,7 @@ function displayResults(results) {
   const card1 = document.getElementById('card1');
   const card2 = document.getElementById('card2');
   const card3 = document.getElementById('card3');
+  const cardContainer = document.querySelector('.cards-container');
 
   results.forEach(result => {
       const parts = result.split(', ');
@@ -244,5 +245,6 @@ function displayResults(results) {
           card3.style.backgroundImage = `url('f1_photos/driver photos/${lastName}.jpg')`;
       }
   });
+  cardContainer.style.visibility = 'visible';
 }
 
