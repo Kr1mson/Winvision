@@ -167,27 +167,55 @@ function sendtoapi(event) {
     });
 }
 
+// function displayResults(results) {
+//   const resultsListElement = document.getElementById('results-list');
+//   resultsListElement.innerHTML = '';
+
+//   const card1 = document.getElementById('card1');
+// if (card1 && results[2]) {
+// card1.querySelector('p').textContent = results[2];
+// }
+
+// // Update the content of the second card
+// const card2 = document.getElementById('card2');
+// if (card2 && results[1]) {
+// card2.querySelector('p').textContent = results[1];
+// }
+
+// // Update the content of the third card
+// const card3 = document.getElementById('card3');
+// if (card3 && results[0]) {
+// card3.querySelector('p').textContent = results[0];
+// }
+// }
+
 function displayResults(results) {
   const resultsListElement = document.getElementById('results-list');
   resultsListElement.innerHTML = '';
 
   const card1 = document.getElementById('card1');
-if (card1 && results[2]) {
-card1.querySelector('p').textContent = results[2];
-}
+  const card2 = document.getElementById('card2');
+  const card3 = document.getElementById('card3');
 
-// Update the content of the second card
-const card2 = document.getElementById('card2');
-if (card2 && results[1]) {
-card2.querySelector('p').textContent = results[1];
-}
+  results.forEach(result => {
+      const parts = result.split(', ');
+      const namePart = parts[0].split(': ')[1];
+      const predictionPart = parts[2].split(': ')[1];
+      const probabilityPart = parts[3].split(': ')[1];
 
-// Update the content of the third card
-const card3 = document.getElementById('card3');
-if (card3 && results[0]) {
-card3.querySelector('p').textContent = results[0];
-}
-}
+      const lastName = namePart.split(' ').pop().toLowerCase();
+      const prediction = parseInt(predictionPart.match(/\d+/)[0]);
 
-
+      if (prediction === 1) {
+        card1.querySelector('p').textContent = results[2];
+          card1.style.backgroundImage = `url('f1_photos/driver photos/${lastName}.jpg')`;
+      } else if (prediction === 2) {
+        card2.querySelector('p').textContent = results[1];
+          card2.style.backgroundImage = `url('f1_photos/driver photos/${lastName}.jpg')`;
+      } else if (prediction === 3) {
+        card3.querySelector('p').textContent = results[0];
+          card3.style.backgroundImage = `url('f1_photos/driver photos/${lastName}.jpg')`;
+      }
+  });
+}
 
