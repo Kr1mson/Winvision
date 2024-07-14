@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Winvison-Model</title>
+    <link rel="stylesheet" href="/model-circuits.css">
+    <link rel="stylesheet" href="/model-drivers.css">
+    <link rel="stylesheet" href="/model-general.css">
+    <link rel="stylesheet" href="/model-grid.css">
+
+  </head>
+  <body>
+    <div class="page-title-container">
+      <div class="page-title">STARTING GRID</div>
+    </div>
+    
+    <img class="bg-img" src="BG/wallpaperflare.com_wallpaper.jpg">
+    
+    <div class="circuits-sidebar">
+      <div class="circuit-title">
+       CIRCUITS
+      </div>
+      <div class="circuits-search-container">
+        <img class="search-icon" src="icons/search.svg">
+        <input class="circuits-search" type="text" placeholder="Search...">
+        <button class="go-button">
+          <img class="go-icon" src="icons/arrow-right.svg">
+        </button>
+      </div>
+      <div class="search-results-container">
+        <div class="matching-results-container">
+          <div class="matching-results">Matching Results</div>
+          <ul></ul>
+
+        </div>
+        <div class="more-results-container">
+          <div class="more-results">All Circuits</div>
+          <ul id="all-circuits" class="circuits-name"></ul>
+          <script src="model-circuits.js"></script>
+          
+
+        </div>
+        
+      </div>
+    </div>
+  </body>
+</html>
