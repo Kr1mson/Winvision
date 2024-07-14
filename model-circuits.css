@@ -60,23 +60,29 @@
   flex-direction: column;
   justify-self: center;
   border-radius: 5px;
+  margin-top:8px;
 
 }
 .matching-results{
   font-family: F1-bold;
+  padding:5px;
 }
 .more-results{
   font-family: F1-bold;
+  padding:2px;
 
 }
-.matching-results-container{
+.matching-results-container, .more-results-container{
   flex:1fr;
+  display: flex;
+  flex-direction: column;
 }
-.more-results-container{
-  flex:1fr;
-  
+
+.all-circuits{
+  max-height: 300px;
+  overflow-y: scroll;
 }
-.circuits-name{
-  max-height: 500px;
+.matching-circuits{
+  max-height: 100px;
   overflow-y: scroll;
 }

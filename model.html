@@ -21,7 +21,7 @@
       </div>
       <div class="circuits-search-container">
         <img class="search-icon" src="icons/search.svg">
-        <input class="circuits-search" type="text" placeholder="Search...">
+        <input id="circuits-search" class="circuits-search" type="text" placeholder="Search..." onkeyup="filterCircuits()">
         <button class="go-button">
           <img class="go-icon" src="icons/arrow-right.svg">
         </button>
@@ -29,12 +29,14 @@
       <div class="search-results-container">
         <div class="matching-results-container">
           <div class="matching-results">Matching Results</div>
-          <ul></ul>
+          <ul id="matching-circuits" class="matching-circuits">
+            
+          </ul>
 
         </div>
         <div class="more-results-container">
           <div class="more-results">All Circuits</div>
-          <ul id="all-circuits" class="circuits-name"></ul>
+          <ul id="all-circuits" class="all-circuits"></ul>
           <script src="model-circuits.js"></script>
           
 
