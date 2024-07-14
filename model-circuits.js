@@ -49,5 +49,13 @@
              }
          }
      }
+     var lis = document.getElementById("all-circuits").getElementsByTagName('li'); 
+     var search=document.getElementById("circuits-search");
+    for (var i=0; i<lis.length; i++) {
+        lis[i].addEventListener('click', doStuff, false);
+    }
+    function doStuff() {
+        alert( this.innerHTML );            }
+    
      
     
