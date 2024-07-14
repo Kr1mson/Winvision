@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form id="prediction-form" onsubmit="sendtoapi(event)">
+    <h2>
+        WinVision
+    </h2>
+    <form id="prediction-form">
       <div style="margin-bottom: 100px;">
         <label for="f1-racers">Drivers:</label>
         <select id="f1-racers" name="f1-racers">
@@ -31,8 +34,8 @@
           <option value="nico-hulkenberg">Nico Hülkenberg</option>
           <option value="guanyu-zhou">Guanyu Zhou</option>
         </select>
-        <button type="button" onclick="addDriver()">Add Driver</button>
-            <button type="button" onclick="displayDrivers()">Display Drivers</button>
+        <button id="addbtn" type="button" >Add Driver</button>
+            <button id="displaybtn" type="button" >Display Drivers</button>
             <div style="display: block;">
                 <label for="circuit">Circuit:</label>
                 <input type="text" id="circuit" name="circuit" />
@@ -53,99 +56,37 @@
       <h3>Prediction Results:</h3>
       <ul id="results-list"></ul>
   </div>
-
-  <script>
-      const selectedDrivers = [];
-      const maxDrivers = 20;
-
-      function addDriver() {
-          const selectElement = document.getElementById('f1-racers');
-          const selectedDriver = selectElement.options[selectElement.selectedIndex].text;
-
-          if (selectedDrivers.length < maxDrivers) {
-              selectedDrivers.push(selectedDriver);
-              alert(`${selectedDriver} added to the list.`);
-          } else {
-              alert('Maximum number of drivers selected.');
-          }
-      }
-
-      function displayDrivers() {
-            const driversListElement = document.getElementById('drivers-list');
-            const circuitElement = document.getElementById('selected-circuit');
-            const circuitInput = document.getElementById('circuit').value;
-
-            driversListElement.innerHTML = '';
-
-            selectedDrivers.forEach((driver, index) => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `POS ${index + 1}: ${driver}`;
-                driversListElement.appendChild(listItem);
-            });
-
-            circuitElement.textContent = `Selected Circuit: ${circuitInput}`;
-            console.log(selectedDrivers);
-        }
-
-        // selectedDrivers stores the grid positions
-        //circuitInput stores circuit
-        function sendtoapi(event) {
-          event.preventDefault();
-          const circuitInput = document.getElementById('circuit').value;
-          document.getElementById('selected-drivers-input').value = JSON.stringify(selectedDrivers);
-          const selectedDriversInput = selectedDrivers;
-
-          fetch('http://127.0.0.1:5000/predict', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ selectedDrivers: selectedDriversInput, circuit: circuitInput }),
-          })
-          .then((response) => response.json())
-          .then((data) => {
-              displayResults(data);
-          })
-          .catch((error) => {
-              console.error('Error:', error);
-          });
-      }
-
-      function displayResults(results) {
-          const resultsListElement = document.getElementById('results-list');
-          resultsListElement.innerHTML = '';
-
-          results.forEach((result) => {
-              const listItem = document.createElement('li');
-              listItem.textContent = result;
-              resultsListElement.appendChild(listItem);
-          });
-      }
-      
-  
-  </script>
     
-    <div class="card">
-      
+
+<div class="cards-container">
+  <div class="card" id="card2">
       <div class="align">
-          <span class="red">
-            <h3>LEC</h3>
-          </span>
+          <span class="red"><h3></h3></span>
           <span class="yellow"></span>
-          <span class="green">
-            <h4>1ST</h4>
-          </span>
+          <span class="green"><h4>2ND</h4></span>
       </div>
-      
-  
-      <h1>HOVER ME</h1>
-      <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde explicabo enim rem odio assumenda?
-      </p>
+      <p></p>
   </div>
-    <h2>
-        WinVision
-    </h2>
+
+  <div class="card" id="card1">
+      <div class="align">
+          <span class="red"><h3></h3></span>
+          <span class="yellow"></span>
+          <span class="green"><h4>1ST</h4></span>
+      </div>
+      <p></p>
+  </div>
+
+  <div class="card" id="card3">
+      <div class="align">
+          <span class="red"><h3></h3></span>
+          <span class="yellow"></span>
+          <span class="green"><h4>3RD</h4></span>
+      </div>
+      <p></p>
+  </div>
+</div>
+    
     <section class = "hidden">
       <h1>testing model</h1>
     </section>
