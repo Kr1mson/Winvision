@@ -49,13 +49,23 @@
              }
          }
      }
-     var lis = document.getElementById("all-circuits").getElementsByTagName('li'); 
-     var search=document.getElementById("circuits-search");
-    for (var i=0; i<lis.length; i++) {
-        lis[i].addEventListener('click', doStuff, false);
+    var lis1 = document.getElementById("all-circuits").getElementsByTagName('li'); 
+    var lis2 = document.getElementById("matching-circuits").getElementsByTagName('li'); 
+    var search=document.getElementById("circuits-search");
+    var icon=document.getElementById("go-icon");
+    for (var i=0; i<lis1.length; i++) {
+        lis1[i].addEventListener('click', doStuff, false);
+    }
+    for (var i=0; i<lis2.length; i++) {
+        lis2[i].addEventListener('click', doStuff, false);
     }
     function doStuff() {
-        alert( this.innerHTML );            }
+        search.value=this.innerHTML;
+        icon.src="icons/tick.svg";
+    }
+    search.addEventListener('input', function() {
+        icon.src = "icons/arrow-right.svg";
+    });
     
      
     
