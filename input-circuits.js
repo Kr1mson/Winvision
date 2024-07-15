@@ -140,6 +140,9 @@
       drivers.forEach(driver => {
           const card = document.createElement('div');
           card.className = 'card';
+          card.setAttribute('draggable', 'true');
+          card.setAttribute('ondragstart', 'drag(event)');
+          card.style.zIndex = '5';
   
           const line = document.createElement('div');
           line.className = 'line';
@@ -164,6 +167,18 @@
           container.appendChild(card);
       });
   });
-  
+function allowDrop(even) {
+  even.preventDefault();
+}
+
+function drag(even) {
+  even.dataTransfer.setData("text", even.target.id);
+}
+
+function drop(even) {
+  even.preventDefault();
+  var fetchData = even.dataTransfer.getData("text");
+  even.target.appendChild(document.getElementById(fetchData));
+}
      
     
