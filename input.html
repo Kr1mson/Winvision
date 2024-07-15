@@ -2,10 +2,10 @@
 <html>
   <head>
     <title>Winvison-Model</title>
-    <link rel="stylesheet" href="/model-circuits.css">
-    <link rel="stylesheet" href="/model-drivers.css">
-    <link rel="stylesheet" href="/model-general.css">
-    <link rel="stylesheet" href="/model-grid.css">
+    <link rel="stylesheet" href="/input-circuits.css">
+    <link rel="stylesheet" href="/input-drivers.css">
+    <link rel="stylesheet" href="/input-general.css">
+    <link rel="stylesheet" href="/input-grid.css">
 
   </head>
   <body>
@@ -14,17 +14,18 @@
     </div>
     
     <img class="bg-img" src="BG/wallpaperflare.com_wallpaper.jpg">
-    
-    <div class="circuits-sidebar">
+    <button id="circuit-open" class="circuit-open">CIRCUITS</button>
+    <button id="driver-open" class="driver-open">DRIVERS</button>
+
+    <div id="circuits-sidebar" class="circuits-sidebar">
+      <button class="circuit-collapse" id="circuit-collapse">CIRCUITS</button>
       <div class="circuit-title">
        CIRCUITS
       </div>
       <div class="circuits-search-container">
         <img class="search-icon" src="icons/search.svg">
         <input id="circuits-search" class="circuits-search" type="text" placeholder="Search..." onkeyup="filterCircuits()">
-        <button class="go-button">
-          <img id="go-icon" class="go-icon" src="icons/arrow-right.svg">
-        </button>
+        <img id="go-icon" class="go-icon" src="icons/arrow-right.svg">
       </div>
       <div class="search-results-container">
         <div class="matching-results-container">
@@ -37,12 +38,21 @@
         <div class="more-results-container">
           <div class="more-results">All Circuits</div>
           <ul id="all-circuits" class="all-circuits"></ul>
-          <script src="model-circuits.js"></script>
           
 
         </div>
         
       </div>
     </div>
+    <div id="driver-sidebar" class="driver-sidebar">
+      <button class="driver-collapse" id="driver-collapse">DRIVERS</button>
+      <div class="driver-title">
+       DRIVERS
+      </div>
+      <div class="drivers-container" id="drivers-container">
+        
+    </div>
+    <script src="input-circuits.js"></script>
+
   </body>
 </html>
