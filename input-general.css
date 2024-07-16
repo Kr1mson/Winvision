@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: 'F1-black';
-  src: url('fonts\Formula1-Regular.ttf') format('truetype');
+  src: url('fonts/Formula1-Black.ttf') format('truetype');
 }
 @font-face {
   font-family: 'F1-bold';
@@ -21,8 +21,24 @@ html{
 body{
   margin:0px;
   padding-top:50px;
- 
+  scrollbar-width: thin;
+  scrollbar-color: red white;
+
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+}
+
 .bg-img{
   filter:grayscale(100%);
   height: 100%;
@@ -33,7 +49,9 @@ body{
 }
 .page-title-container{
   display:flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .page-title{
   font-family: F1-bold;
@@ -43,6 +61,5 @@ body{
   text-align: center;
   padding:10px 25px 10px 25px;
   position:relative;
-  margin-bottom: -35px;
   z-index:2;
 }
