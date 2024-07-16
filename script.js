@@ -248,6 +248,7 @@ function displayResults(results) {
   cardContainer.style.visibility = 'visible';
 }
 
+
 let circuits = ['Melbourne', 'Kuala Lumpur', 'Sakhir', 'Montmeló', 'Istanbul',
   'Monte-Carlo', 'Montreal', 'Magny Cours', 'Silverstone',
   'Hockenheim', 'Budapest', 'Valencia', 'Spa', 'Monza', 'Marina Bay',
@@ -298,6 +299,50 @@ function filterCircuits() {
      }
  }
 }
+document.addEventListener('DOMContentLoaded', (event) => {
+const yourButtonElement = document.getElementById('circuit-open');
+if (yourButtonElement) {
+  yourButtonElement.addEventListener('click', openNav);
+}
+});
+document.addEventListener('DOMContentLoaded', (event) => {
+const yourButtonElement = document.getElementById('circuit-collapse');
+if (yourButtonElement) {
+  yourButtonElement.addEventListener('click', closeNav);
+}
+});
+
+
+function openNav() {
+document.getElementById("circuits-sidebar").style.display = "flex"; 
+}
+
+function closeNav() {
+document.getElementById("circuits-sidebar").style.display = "none"; 
+}
+document.addEventListener('DOMContentLoaded', (event) => {
+const yourButtonElement = document.getElementById('driver-open');
+if (yourButtonElement) {
+  yourButtonElement.addEventListener('click', openNavdriv);
+}
+});
+document.addEventListener('DOMContentLoaded', (event) => {
+const yourButtonElement = document.getElementById('driver-collapse');
+if (yourButtonElement) {
+  yourButtonElement.addEventListener('click', closeNavdriv);
+}
+});
+
+
+function openNavdriv() {
+document.getElementById("driver-sidebar").style.display = "flex"; 
+}
+
+function closeNavdriv() {
+document.getElementById("driver-sidebar").style.display = "none"; 
+}
+
+
 var lis1 = document.getElementById("all-circuits").getElementsByTagName('li'); 
 var lis2 = document.getElementById("matching-circuits").getElementsByTagName('li'); 
 var search=document.getElementById("circuits-search");
@@ -315,6 +360,78 @@ icon.src="icons/tick.svg";
 search.addEventListener('input', function() {
 icon.src = "icons/arrow-right.svg";
 });
+document.addEventListener('DOMContentLoaded', function() {
+const drivers = [
+{ fname: 'GEORGE', dname: 'RUSSELL' },
+{ fname: 'LANDO', dname: 'NORRIS' },
+{ fname: 'OSCAR', dname: 'PIASTRI' },
+{ fname: 'DANIEL', dname: 'RICCIARDO' },
+{ fname: 'FERNANDO', dname: 'ALONSO' },
+{ fname: 'LEWIS', dname: 'HAMILTON' },
+{ fname: 'YUKI', dname: 'TSUNODA' },
+{ fname: 'LANCE', dname: 'STROLL' },
+{ fname: 'ALEXANDER', dname: 'ALBON' },
+{ fname: 'CHARLES', dname: 'LECLERC' },
+{ fname: 'CARLOS', dname: 'SAINZ' },
+{ fname: 'LOGAN', dname: 'SARGEANT' },
+{ fname: 'KEVIN', dname: 'MAGNUSSEN' },
+{ fname: 'PIERRE', dname: 'GASLY' },
+{ fname: 'SERGIO', dname: 'PÉREZ' },
+{ fname: 'VALTTERI', dname: 'BOTTAS' },
+{ fname: 'ESTEBAN', dname: 'OCON' },
+{ fname: 'MAX', dname: 'VERSTAPPEN' },
+{ fname: 'NICO', dname: 'HÜLKENBERG' },
+{ fname: 'GUANYU', dname: 'ZHOU' }
+];
+
+
+const container = document.getElementById('drivers-container');
+
+drivers.forEach(driver => {
+  const driv_card = document.createElement('div');
+  driv_card.className = 'driv_card';
+  driv_card.setAttribute('draggable', 'true');
+  driv_card.setAttribute('ondragstart', 'drag(event)');
+  driv_card.style.zIndex = '5';
+
+  const line = document.createElement('div');
+  line.className = 'line';
+
+  const dname = document.createElement('div');
+  dname.className = 'dname';
+
+  const fname = document.createElement('div');
+  fname.className = 'fname';
+  fname.textContent = driver.fname;
+
+  const lname = document.createElement('div');
+  lname.className = 'lname';
+  lname.textContent = driver.dname;
+
+  dname.appendChild(fname);
+  dname.appendChild(lname);
+
+  driv_card.appendChild(line);
+  driv_card.appendChild(dname);
+
+  container.appendChild(driv_card);
+});
+});
+function allowDrop(even) {
+even.preventDefault();
+}
+
+function drag(even) {
+even.dataTransfer.setData("text", even.target.id);
+}
+
+function drop(even) {
+even.preventDefault();
+var fetchData = even.dataTransfer.getData("text");
+even.target.appendChild(document.getElementById(fetchData));
+}
+
+
 
 document.addEventListener('DOMContentLoaded', (event) => {
   const circ_search = document.getElementById('circuits-search');

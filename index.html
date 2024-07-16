@@ -4,26 +4,132 @@
     <meta charset="utf-8" />
     <title>WinVision</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="/model-circuits.css">
-    <link rel="stylesheet" href="/model-drivers.css">
-    <link rel="stylesheet" href="/model-general.css">
-    <link rel="stylesheet" href="/model-grid.css">
+    <link rel="stylesheet" href="/input-circuits.css">
+    <link rel="stylesheet" href="/input-drivers.css">
+    <link rel="stylesheet" href="/input-general.css">
+    <link rel="stylesheet" href="/input-grid.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
   </head>
   <body>
     <div class="page-title-container">
       <div class="page-title">STARTING GRID</div>
+      <div class="grid-container" id="grid-container">
+        <div class="grid-positions-container" id="onetwo">
+          <div class="pos-down">
+            <div class="pos-down-no">02</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">01</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="threefour">
+          <div class="pos-down">
+            <div class="pos-down-no">04</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">03</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="fivesix">
+          <div class="pos-down">
+            <div class="pos-down-no">06</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">05</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="seveneight">
+          <div class="pos-down">
+            <div class="pos-down-no">08</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">07</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="nineten">
+          <div class="pos-down">
+            <div class="pos-down-no">10</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">09</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="eleventwelve">
+          <div class="pos-down">
+            <div class="pos-down-no">12</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">11</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="thirteenfourteen">
+          <div class="pos-down">
+            <div class="pos-down-no">14</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">13</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="fifteensixteen">
+          <div class="pos-down">
+            <div class="pos-down-no">16</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">15</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="seventeeneighteen">
+          <div class="pos-down">
+            <div class="pos-down-no">18</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">17</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="ninteentwenty">
+          <div class="pos-down">
+            <div class="pos-down-no">20</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">19</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        
+      </div>
     </div>
-    <img class="bg-img" src="BG/wallpaperflare.com_wallpaper.jpg">
-    <div class="circuits-sidebar">
+    <!-- <img class="bg-img" src="BG/wallpaperflare.com_wallpaper.jpg"> -->
+    <button id="circuit-open" class="circuit-open">CIRCUITS</button>
+    <button id="driver-open" class="driver-open">DRIVERS</button>
+
+    <div id="circuits-sidebar" class="circuits-sidebar">
+      <button class="circuit-collapse" id="circuit-collapse">CIRCUITS</button>
       <div class="circuit-title">
        CIRCUITS
       </div>
       <div class="circuits-search-container">
         <img class="search-icon" src="icons/search.svg">
-        <input id="circuits-search" class="circuits-search" type="text" placeholder="Search...">
-        <button class="go-button">
-          <img id="go-icon" class="go-icon" src="icons/arrow-right.svg">
-        </button>
+        <input id="circuits-search" class="circuits-search" type="text" placeholder="Search..." onkeyup="filterCircuits()">
+        <img id="go-icon" class="go-icon" src="icons/arrow-right.svg">
       </div>
       <div class="search-results-container">
         <div class="matching-results-container">
@@ -36,6 +142,20 @@
         <div class="more-results-container">
           <div class="more-results">All Circuits</div>
           <ul id="all-circuits" class="all-circuits"></ul>
+          
+
+        </div>
+        
+      </div>
+    </div>
+    <div id="driver-sidebar" class="driver-sidebar">
+      <button class="driver-collapse" id="driver-collapse">DRIVERS</button>
+      <div class="driver-title">
+       DRIVERS
+      </div>
+      <div class="drivers-container" id="drivers-container">
+        
+    </div>
           <script type = "module" src="script.js"></script>
           
 
