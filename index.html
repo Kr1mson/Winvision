@@ -4,11 +4,45 @@
     <meta charset="utf-8" />
     <title>WinVision</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/model-circuits.css">
+    <link rel="stylesheet" href="/model-drivers.css">
+    <link rel="stylesheet" href="/model-general.css">
+    <link rel="stylesheet" href="/model-grid.css">
   </head>
   <body>
-    <h2>
-        WinVision
-    </h2>
+    <div class="page-title-container">
+      <div class="page-title">STARTING GRID</div>
+    </div>
+    <img class="bg-img" src="BG/wallpaperflare.com_wallpaper.jpg">
+    <div class="circuits-sidebar">
+      <div class="circuit-title">
+       CIRCUITS
+      </div>
+      <div class="circuits-search-container">
+        <img class="search-icon" src="icons/search.svg">
+        <input id="circuits-search" class="circuits-search" type="text" placeholder="Search...">
+        <button class="go-button">
+          <img id="go-icon" class="go-icon" src="icons/arrow-right.svg">
+        </button>
+      </div>
+      <div class="search-results-container">
+        <div class="matching-results-container">
+          <div class="matching-results">Matching Results</div>
+          <ul id="matching-circuits" class="matching-circuits">
+            
+          </ul>
+
+        </div>
+        <div class="more-results-container">
+          <div class="more-results">All Circuits</div>
+          <ul id="all-circuits" class="all-circuits"></ul>
+          <script type = "module" src="script.js"></script>
+          
+
+        </div>
+        
+      </div>
+    </div>
     <form id="prediction-form">
       <div style="margin-bottom: 100px;">
         <label for="f1-racers">Drivers:</label>
