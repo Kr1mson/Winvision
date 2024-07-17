@@ -314,11 +314,16 @@ if (yourButtonElement) {
 
 
 function openNav() {
-document.getElementById("circuits-sidebar").style.display = "flex"; 
+document.getElementById("circuits-sidebar").style.visibility = "visible"; 
+document.getElementById("circuits-sidebar").style.animation = "1s slide-right"; 
+
 }
 
 function closeNav() {
-document.getElementById("circuits-sidebar").style.display = "none"; 
+document.getElementById("circuits-sidebar").style.visibility = "hidden"; 
+document.getElementById("circuits-sidebar").style.animation = "3s slide-left"; 
+
+
 }
 document.addEventListener('DOMContentLoaded', (event) => {
 const yourButtonElement = document.getElementById('driver-open');
