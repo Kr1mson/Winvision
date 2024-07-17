@@ -315,13 +315,13 @@ if (yourButtonElement) {
 
 function openNav() {
 document.getElementById("circuits-sidebar").style.visibility = "visible"; 
-document.getElementById("circuits-sidebar").style.animation = "1s slide-right"; 
+document.getElementById("circuits-sidebar").style.animation = "0.15s slide-right"; 
 
 }
 
 function closeNav() {
 document.getElementById("circuits-sidebar").style.visibility = "hidden"; 
-document.getElementById("circuits-sidebar").style.animation = "3s slide-left"; 
+document.getElementById("circuits-sidebar").style.animation = "0.3s slide-left"; 
 
 
 }
@@ -396,7 +396,6 @@ drivers.forEach(driver => {
   const driv_card = document.createElement('div');
   driv_card.className = 'driv_card';
   driv_card.setAttribute('draggable', 'true');
-  driv_card.setAttribute('ondragstart', 'drag(event)');
   driv_card.style.zIndex = '5';
 
   const line = document.createElement('div');
@@ -422,19 +421,8 @@ drivers.forEach(driver => {
   container.appendChild(driv_card);
 });
 });
-function allowDrop(even) {
-even.preventDefault();
-}
 
-function drag(even) {
-even.dataTransfer.setData("text", even.target.id);
-}
 
-function drop(even) {
-even.preventDefault();
-var fetchData = even.dataTransfer.getData("text");
-even.target.appendChild(document.getElementById(fetchData));
-}
 
 
 
@@ -444,3 +432,39 @@ document.addEventListener('DOMContentLoaded', (event) => {
     circ_search.addEventListener('keyup', filterCircuits);
   }
 });
+(function() {
+  var dragged, listener;
+
+  console.clear();
+
+  dragged = null;
+
+  listener = document.addEventListener;
+
+  listener("dragstart", (event) => {
+    console.log("start !");
+    return dragged = event.target;
+  });
+
+  listener("dragend", (event) => {
+    return console.log("end !");
+  });
+
+  listener("dragover", function(event) {
+    return event.preventDefault();
+  });
+
+  listener("drop", (event) => {
+    console.log("drop !");
+    event.preventDefault();
+    if (event.target.className === "grid-line") {
+      dragged.parentNode.removeChild(dragged);
+      return event.target.appendChild(dragged);
+    }
+    if(event.target.className=="drivers-container"){
+      dragged.parentNode.removeChild(dragged);
+      return event.target.appendChild(dragged);
+    }
+  });
+
+}).call(this);
