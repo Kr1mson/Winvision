@@ -468,3 +468,40 @@ document.addEventListener('DOMContentLoaded', (event) => {
   });
 
 }).call(this);
+document.addEventListener('DOMContentLoaded', (event) => {
+  const yourButtonElement = document.getElementById('submit-btn');
+  if (yourButtonElement) {
+    yourButtonElement.addEventListener('click', submit);
+  }
+});
+function submit(event){
+  const containers = document.querySelectorAll('.grid-positions-container');
+  const jsonList = [];
+  circuit=document.getElementById("circuits-search").value;
+  containers.forEach(container => {
+    container.querySelectorAll('.dname').forEach(item => {
+      let fname = item.querySelector('.fname').textContent.trim().toLowerCase();
+        let lname = item.querySelector('.lname').textContent.trim().toLowerCase();
+        fname = fname.charAt(0).toUpperCase() + fname.slice(1);
+        lname = lname.charAt(0).toUpperCase() + lname.slice(1);
+        const fullName = `${fname} ${lname}`;
+        jsonList.push(fullName);   
+    });
+});
+  if(jsonList.length<20){
+    alert("Please fill all the positions");
+  }else{
+    alert("CHosen "+JSON.stringify(jsonList));
+
+  }
+  var chk=document.getElementById("go-icon").src;
+  if(chk.includes("arrow")){
+    alert("Please enter a valid Circuit");
+  }
+  else{
+    alert("Chosen Circuit: "+ circuit);
+  }
+}
+  
+  
+
