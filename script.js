@@ -99,76 +99,7 @@ hiddenElements.forEach((el)=> observer.observe(el));
 const selectedDrivers = [];
 const maxDrivers = 20;
 
-document.addEventListener('DOMContentLoaded', (event) => {
-  const yourButtonElement = document.getElementById('addbtn');
-  if (yourButtonElement) {
-    yourButtonElement.addEventListener('click', addDriver);
-  }
-});
 
-document.addEventListener('DOMContentLoaded', (event) => {
-  const yourButtonElement = document.getElementById('displaybtn');
-  if (yourButtonElement) {
-    yourButtonElement.addEventListener('click', displayDrivers);
-  }
-});
-document.addEventListener('DOMContentLoaded', (event) => {
-  const form_submit = document.getElementById('prediction-form');
-  if (form_submit) {
-    form_submit.addEventListener('submit', sendtoapi);
-  }
-});
-
-function addDriver() {
-    const selectElement = document.getElementById('f1-racers');
-    const selectedDriver = selectElement.options[selectElement.selectedIndex].text;
-
-    if (selectedDrivers.length < maxDrivers) {
-        selectedDrivers.push(selectedDriver);
-        alert(`${selectedDriver} added to the list.`);
-    } else {
-        alert('Maximum number of drivers selected.');
-    }
-}
-
-function displayDrivers() {
-    const driversListElement = document.getElementById('drivers-list');
-    const circuitElement = document.getElementById('selected-circuit');
-    const circuitInput = document.getElementById('circuit').value;
-
-    driversListElement.innerHTML = '';
-
-    selectedDrivers.forEach((driver, index) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `POS ${index + 1}: ${driver}`;
-        driversListElement.appendChild(listItem);
-    });
-
-    circuitElement.textContent = `Selected Circuit: ${circuitInput}`;
-    console.log(selectedDrivers);
-}
-
-function sendtoapi(event) {
-    event.preventDefault();
-    const circuitInput = document.getElementById('circuit').value;
-    document.getElementById('selected-drivers-input').value = JSON.stringify(selectedDrivers);
-    const selectedDriversInput = selectedDrivers;
-
-    fetch('http://notmasons.xyz:5500/predict', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ selectedDrivers: selectedDriversInput, circuit: circuitInput }),
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        displayResults(data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-}
 
 // function displayResults(results) {
 //   const resultsListElement = document.getElementById('results-list');
@@ -475,13 +406,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 document.addEventListener('DOMContentLoaded', (event) => {
   const yourButtonElement = document.getElementById('submit-btn');
   if (yourButtonElement) {
-    yourButtonElement.addEventListener('click', submit);
+    yourButtonElement.addEventListener('click', sendtoapi);
   }
 });
-function submit(event){
+function sendtoapi(event) {
   const containers = document.querySelectorAll('.grid-positions-container');
   const jsonList = [];
-  circuit=document.getElementById("circuits-search").value;
+  const circuit=document.getElementById("circuits-search").value;
   containers.forEach(container => {
     container.querySelectorAll('.dname').forEach(item => {
       let fname = item.querySelector('.fname').textContent.trim().toLowerCase();
@@ -505,7 +436,21 @@ function submit(event){
   else{
     alert("Chosen Circuit: "+ circuit);
   }
+  event.preventDefault();
+  fetch('http://notmasons.xyz:5500/predict', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ selectedDrivers: jsonList, circuit: circuit }),
+  })
+  .then((response) => response.json())
+  .then((data) => {
+      displayResults(data);
+  })
+  .catch((error) => {
+      console.error('Error:', error);
+  });
 }
-  
   
 

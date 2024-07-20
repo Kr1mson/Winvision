@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
   </head>
   <body>
-    <img class="bg-img" src="BG/wallpaperflare.com_wallpaper.jpg">
-    <div class="page-title-container">
+    <div class="page-title-container"></div>
+    
+    
       <div id="container3D"></div>
       <div class="page-title">STARTING GRID</div>
       <button id="submit-btn" class="submit-btn">LET'S-A-GO</button>
@@ -166,49 +167,6 @@
         
       </div>
     </div>
-    <form id="prediction-form">
-      <div style="margin-bottom: 100px;">
-        <label for="f1-racers">Drivers:</label>
-        <select id="f1-racers" name="f1-racers">
-          <option value="george-russell">George Russell</option>
-          <option value="lando-norris">Lando Norris</option>
-          <option value="oscar-piastri">Oscar Piastri</option>
-          <option value="daniel-ricciardo">Daniel Ricciardo</option>
-          <option value="fernando-alonso">Fernando Alonso</option>
-          <option value="lewis-hamilton">Lewis Hamilton</option>
-          <option value="yuki-tsunoda">Yuki Tsunoda</option>
-          <option value="lance-stroll">Lance Stroll</option>
-          <option value="alexander-albon">Alexander Albon</option>
-          <option value="charles-leclerc">Charles Leclerc</option>
-          <option value="carlos-sainz">Carlos Sainz</option>
-          <option value="logan-sargeant">Logan Sargeant</option>
-          <option value="kevin-magnussen">Kevin Magnussen</option>
-          <option value="pierre-gasly">Pierre Gasly</option>
-          <option value="sergio-perez">Sergio Pérez</option>
-          <option value="valtteri-bottas">Valtteri Bottas</option>
-          <option value="esteban-ocon">Esteban Ocon</option>
-          <option value="max-verstappen">Max Verstappen</option>
-          <option value="nico-hulkenberg">Nico Hülkenberg</option>
-          <option value="guanyu-zhou">Guanyu Zhou</option>
-        </select>
-        <button id="addbtn" type="button" >Add Driver</button>
-            <button id="displaybtn" type="button" >Display Drivers</button>
-            <div style="display: block;">
-                <label for="circuit">Circuit:</label>
-                <input type="text" id="circuit" name="circuit" />
-            </div>
-            <input type="hidden" id="selected-drivers-input" name="selected-drivers" />
-            <button type="submit" class="btn-large waves-effect waves-light orange">
-                Predict Probability
-            </button>
-      </div>
-    </form>
-
-    <div id="selected-drivers" style="margin-bottom: 1000px;">
-      <h3>Selected Drivers:</h3>
-      <ul id="drivers-list"></ul>
-      <p id="selected-circuit"></p>
-    </div>
     <div id="prediction-results">
       <h3>Prediction Results:</h3>
       <ul id="results-list"></ul>
@@ -244,15 +202,7 @@
   </div>
 </div>
     
-    <section class = "hidden">
-      <h1>testing model</h1>
-    </section>
-    <section class = "hidden">
-        Welcome to WinVision
-    </section>
-    <section class = "hidden">
-        
-    </section>
+    
 
     <script type="module" src="script.js"></script>
   </body>
