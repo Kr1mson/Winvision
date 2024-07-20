@@ -75,4 +75,4 @@ def predict():
     # return render_template("index.html",pred="predicted Race results {}".format(predictions))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port = "5500")

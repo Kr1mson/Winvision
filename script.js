@@ -43,8 +43,11 @@ document.getElementById("container3D").appendChild(renderer.domElement);
 camera.position.z = objToRender === "scuderia_ferrari_f1_sf23_2023" ? 25 : 500;
 
 const topLight = new THREE.DirectionalLight(0xffffff, 5); // (color, intensity)
-topLight.position.set(500, 500, 500) //top-left-ish
-topLight.castShadow = true;
+const topLight2 = new THREE.DirectionalLight(0xffffff, 5); // (color, intensity)
+topLight2.position.set(0,-500,0)
+topLight.position.set(0,500, 0) //top-left-ish
+topLight.castShadow = false;
+scene.add(topLight2);
 scene.add(topLight);
 
 const ambientLight = new THREE.AmbientLight(0x333333, objToRender === "scuderia_ferrari_f1_sf23_2023" ? 5 : 1);
@@ -151,7 +154,7 @@ function sendtoapi(event) {
     document.getElementById('selected-drivers-input').value = JSON.stringify(selectedDrivers);
     const selectedDriversInput = selectedDrivers;
 
-    fetch('http://127.0.0.1:5000/predict', {
+    fetch('http://notmasons.xyz:5500/predict', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -309,6 +312,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 const yourButtonElement = document.getElementById('circuit-collapse');
 if (yourButtonElement) {
   yourButtonElement.addEventListener('click', closeNav);
+  
 }
 });
 
@@ -318,7 +322,7 @@ document.getElementById("circuits-sidebar").style.display = "flex";
 }
 
 function closeNav() {
-document.getElementById("circuits-sidebar").style.display = "none"; 
+document.getElementById("circuits-sidebar").style.display = "none";
 }
 document.addEventListener('DOMContentLoaded', (event) => {
 const yourButtonElement = document.getElementById('driver-open');
