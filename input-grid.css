@@ -1,9 +1,10 @@
 .grid-container{
-  background-color:grey;
-  width:800px;
+  background-color:transparent;
+  width:1000px;
   display: flex;
   flex-direction: column;
   padding:10px;
+  z-index:1;
 }
 .grid-positions-container{
   height: 240px;
@@ -42,9 +43,12 @@
   margin-right:10px;
 }
 .grid-line{
-  width: 150px;
-  height: 120px;
+  width: 285px;
+  height: 100px;
   margin-top:40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
   border-width: 10px;
   border-style:solid;

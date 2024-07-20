@@ -318,11 +318,16 @@ if (yourButtonElement) {
 
 
 function openNav() {
-document.getElementById("circuits-sidebar").style.display = "flex"; 
+document.getElementById("circuits-sidebar").style.visibility = "visible"; 
+document.getElementById("circuits-sidebar").style.animation = "0.15s slide-right"; 
+
 }
 
 function closeNav() {
-document.getElementById("circuits-sidebar").style.display = "none";
+document.getElementById("circuits-sidebar").style.visibility = "hidden"; 
+document.getElementById("circuits-sidebar").style.animation = "0.3s slide-left"; 
+
+
 }
 document.addEventListener('DOMContentLoaded', (event) => {
 const yourButtonElement = document.getElementById('driver-open');
@@ -395,7 +400,6 @@ drivers.forEach(driver => {
   const driv_card = document.createElement('div');
   driv_card.className = 'driv_card';
   driv_card.setAttribute('draggable', 'true');
-  driv_card.setAttribute('ondragstart', 'drag(event)');
   driv_card.style.zIndex = '5';
 
   const line = document.createElement('div');
@@ -421,19 +425,8 @@ drivers.forEach(driver => {
   container.appendChild(driv_card);
 });
 });
-function allowDrop(even) {
-even.preventDefault();
-}
 
-function drag(even) {
-even.dataTransfer.setData("text", even.target.id);
-}
 
-function drop(even) {
-even.preventDefault();
-var fetchData = even.dataTransfer.getData("text");
-even.target.appendChild(document.getElementById(fetchData));
-}
 
 
 
@@ -443,3 +436,76 @@ document.addEventListener('DOMContentLoaded', (event) => {
     circ_search.addEventListener('keyup', filterCircuits);
   }
 });
+(function() {
+  var dragged, listener;
+
+  console.clear();
+
+  dragged = null;
+
+  listener = document.addEventListener;
+
+  listener("dragstart", (event) => {
+    console.log("start !");
+    return dragged = event.target;
+  });
+
+  listener("dragend", (event) => {
+    return console.log("end !");
+  });
+
+  listener("dragover", function(event) {
+    return event.preventDefault();
+  });
+
+  listener("drop", (event) => {
+    console.log("drop !");
+    event.preventDefault();
+    if (event.target.className === "grid-line") {
+      dragged.parentNode.removeChild(dragged);
+      return event.target.appendChild(dragged);
+    }
+    if(event.target.className=="drivers-container"){
+      dragged.parentNode.removeChild(dragged);
+      return event.target.appendChild(dragged);
+    }
+  });
+
+}).call(this);
+document.addEventListener('DOMContentLoaded', (event) => {
+  const yourButtonElement = document.getElementById('submit-btn');
+  if (yourButtonElement) {
+    yourButtonElement.addEventListener('click', submit);
+  }
+});
+function submit(event){
+  const containers = document.querySelectorAll('.grid-positions-container');
+  const jsonList = [];
+  circuit=document.getElementById("circuits-search").value;
+  containers.forEach(container => {
+    container.querySelectorAll('.dname').forEach(item => {
+      let fname = item.querySelector('.fname').textContent.trim().toLowerCase();
+        let lname = item.querySelector('.lname').textContent.trim().toLowerCase();
+        fname = fname.charAt(0).toUpperCase() + fname.slice(1);
+        lname = lname.charAt(0).toUpperCase() + lname.slice(1);
+        const fullName = `${fname} ${lname}`;
+        jsonList.push(fullName);   
+    });
+});
+  if(jsonList.length<20){
+    alert("Please fill all the positions");
+  }else{
+    alert("CHosen "+JSON.stringify(jsonList));
+
+  }
+  var chk=document.getElementById("go-icon").src;
+  if(chk.includes("arrow")){
+    alert("Please enter a valid Circuit");
+  }
+  else{
+    alert("Chosen Circuit: "+ circuit);
+  }
+}
+  
+  
+

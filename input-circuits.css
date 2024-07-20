@@ -10,9 +10,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition:0.5s;
   padding:10px;
+
 }
+@keyframes slide-right {
+  from {
+    margin-left: -100%;
+  }
+  to {
+    margin-left: 0%;
+  }
+}
+@keyframes slide-left {
+  from {
+    margin-left: 100%;
+  }
+  to {
+    margin-left: 0%;
+  }
+}
+
+
 
 .circuit-collapse, .circuit-open{
   position: fixed;
