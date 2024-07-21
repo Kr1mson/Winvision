@@ -7,8 +7,9 @@
 body {
   margin: 0;
     font-family: "Montserrat", sans-serif;
-    background-color: #676767;
-    background-blend-mode: multiply;
+    background: radial-gradient(circle, #01136c, #600101, #7a0202, #9a0101);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
     min-block-size: 100dvh;
     display: grid;
     place-items: center;
@@ -125,4 +126,15 @@ body {
     top: 0;
     left: 0;
     z-index: -1;
+  }
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
