@@ -444,7 +444,7 @@ function sendtoapi(event) {
     alert("Chosen Circuit: "+ circuit);
   }
   event.preventDefault();
-  fetch('http://notmasons.xyz:5500/predict', {
+  fetch('http://127.0.0.1:5000/predict', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
