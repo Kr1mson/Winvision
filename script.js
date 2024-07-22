@@ -6,9 +6,9 @@ import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/js
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(7, window.innerWidth / window.innerHeight, 0.6, 1000);
+const camera = new THREE.PerspectiveCamera(8, window.innerWidth / window.innerHeight, 0.1, 100);
 
-camera.position.set(20, 1, 10);
+camera.position.set(1, 20, 10);
 
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
@@ -39,7 +39,14 @@ const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 document.getElementById("container3D").appendChild(renderer.domElement);
-
+function updateModelPosition() {
+  const scrollY = window.scrollY;
+  // Adjust these values as needed to change the effect of the scroll on the model's position
+  const positionY = -scrollY / 100;
+  if (object) {
+    object.position.y = positionY;
+  }
+}
 camera.position.z = objToRender === "scuderia_ferrari_f1_sf23_2023" ? 25 : 500;
 
 const topLight = new THREE.DirectionalLight(0xffffff, 5); // (color, intensity)
@@ -426,7 +433,7 @@ function sendtoapi(event) {
   if(jsonList.length<20){
     alert("Please fill all the positions");
   }else{
-    alert("CHosen "+JSON.stringify(jsonList));
+    alert("Chosen "+JSON.stringify(jsonList));
 
   }
   var chk=document.getElementById("go-icon").src;

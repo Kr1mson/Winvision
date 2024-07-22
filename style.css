@@ -7,13 +7,60 @@
 body {
   margin: 0;
     font-family: "Montserrat", sans-serif;
-    background: radial-gradient(circle, #01136c, #600101, #7a0202, #9a0101);
+    background: radial-gradient(circle, #01136c, #600101, #7a0202, #2f019a);
     background-size: 400% 400%;
     animation: gradientAnimation 15s ease infinite;
     min-block-size: 100dvh;
     display: grid;
     place-items: center;
   }
+  .submit-btn {
+    align-items: center;
+    background-image: linear-gradient(144deg,#AF40FF, #150775 50%,#7b0505);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: F1;
+    font-size: 18px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 15px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all .3s;
+   }
+   
+   .submit-btn:active,
+   .submit-btn:hover {
+    outline: 0;
+   }
+   
+   .submit-btn span {
+    background-color: rgb(5, 6, 45);
+    padding: 10px 34px;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+   }
+   
+   .submit-btn:hover span {
+    background: none;
+    color: #FFFFFF;
+   }
+   
+   .submit-btn:active {
+    transform: scale(0.9);
+   }
   .cards-container {
     display: flex;
     flex-direction: row;
@@ -122,7 +169,7 @@ body {
   #container3D canvas {
     width: 100vw !important;
     height: 100vh !important;
-    /* position: absolute; */
+    position: fixed;
     top: 0;
     left: 0;
     z-index: -1;

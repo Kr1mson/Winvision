@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from flask_cors import CORS
 winvision = pd.read_csv(r"archive/winvision.csv")
-drivers = pd.read_csv(r"archive/drivers.csv")
+drivers = pd.read_csv(r"drivers.csv")
 circuits = pd.read_csv(r"archive/circuits.csv")
 
 app = Flask(__name__)

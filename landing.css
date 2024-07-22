@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'F1';
+    src: url('fonts/Formula1-Regular.ttf') format('truetype');
+  }
+body {
+    margin: 0;
+      font-family: "Montserrat", sans-serif;
+      background: linear-gradient(144deg, #01136c, #470160, #7a0202, #2f019a);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      min-block-size: 100dvh;
+      display: grid;
+      place-items: center;
+    }
+    @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      #container3D canvas {
+        width: 100vw !important;
+        height: 100vh !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
