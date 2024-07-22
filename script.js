@@ -432,32 +432,31 @@ function sendtoapi(event) {
 });
   if(jsonList.length<20){
     alert("Please fill all the positions");
-  }else{
-    alert("Chosen "+JSON.stringify(jsonList));
-
   }
   var chk=document.getElementById("go-icon").src;
   if(chk.includes("arrow")){
     alert("Please enter a valid Circuit");
   }
   else{
+    alert("Chosen "+JSON.stringify(jsonList));
     alert("Chosen Circuit: "+ circuit);
+    
+    event.preventDefault();
+    fetch('http://127.0.0.1:5000/predict', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ selectedDrivers: jsonList, circuit: circuit }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        displayResults(data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
   }
-  event.preventDefault();
-  fetch('http://127.0.0.1:5000/predict', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ selectedDrivers: jsonList, circuit: circuit }),
-  })
-  .then((response) => response.json())
-  .then((data) => {
-      displayResults(data);
-  })
-  .catch((error) => {
-      console.error('Error:', error);
-  });
 }
   
 
