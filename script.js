@@ -363,11 +363,6 @@ drivers.forEach(driver => {
   container.appendChild(driv_card);
 });
 });
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', (event) => {
   const circ_search = document.getElementById('circuits-search');
   if (circ_search) {
@@ -380,34 +375,80 @@ document.addEventListener('DOMContentLoaded', (event) => {
   console.clear();
 
   dragged = null;
-
+  const sidebar = document.querySelector('.drivers-container');
+  const gridLines = document.querySelectorAll('.grid-line');
   listener = document.addEventListener;
 
   listener("dragstart", (event) => {
     console.log("start !");
-    return dragged = event.target;
+    dragged = event.target.closest('.driv_card');
   });
 
   listener("dragend", (event) => {
-    return console.log("end !");
+    console.log("end !");
   });
 
   listener("dragover", function(event) {
-    return event.preventDefault();
+    event.preventDefault();
   });
 
   listener("drop", (event) => {
     console.log("drop !");
     event.preventDefault();
-    if (event.target.className === "grid-line") {
+
+    let targetCard = event.target.closest('.driv_card');
+    if (targetCard && targetCard !== dragged) {
+      const draggedParent = dragged.parentNode;
+      const targetParent = targetCard.parentNode;
+      const draggedIndex = Array.from(draggedParent.children).indexOf(dragged);
+      const targetIndex = Array.from(targetParent.children).indexOf(targetCard);
+
+      if (draggedParent === targetParent) {
+        draggedParent.insertBefore(dragged, targetIndex > draggedIndex ? targetCard.nextSibling : targetCard);
+      } else {
+        draggedParent.replaceChild(targetCard, dragged);
+        targetParent.insertBefore(dragged, targetParent.children[targetIndex]);
+      }
+    } else if (event.target.className === "grid-line") {
+      if (!event.target.hasChildNodes()) {
+        dragged.parentNode.removeChild(dragged);
+        event.target.appendChild(dragged);
+      } else {
+        const existingCard = event.target.firstChild;
+        const draggedParent = dragged.parentNode;
+
+        dragged.parentNode.removeChild(dragged);
+        event.target.appendChild(dragged);
+
+        draggedParent.appendChild(existingCard);
+      }
+    } else if (event.target.className === "drivers-container") {
       dragged.parentNode.removeChild(dragged);
-      return event.target.appendChild(dragged);
-    }
-    if(event.target.className=="drivers-container"){
-      dragged.parentNode.removeChild(dragged);
-      return event.target.appendChild(dragged);
+      event.target.appendChild(dragged);
     }
   });
+  const order = [2, 1, 4, 3, 6, 5, 8, 7, 10, 9, 12, 11, 14, 13, 16, 15, 18, 17, 20, 19];
+
+  document.addEventListener("dblclick", (event) => {
+    const card = event.target.closest('.driv_card');
+    if (card) {
+      const parent = card.parentNode;
+      if (parent === sidebar) {
+        for (let i = 0; i < order.length; i++) {
+          const gridLineIndex = order[i] - 1;
+          if (gridLines[gridLineIndex] && !gridLines[gridLineIndex].hasChildNodes()) {
+            sidebar.removeChild(card);
+            gridLines[gridLineIndex].appendChild(card);
+            break;
+          }
+        }
+      } else {
+        parent.removeChild(card);
+        sidebar.appendChild(card);
+      }
+    }
+  });
+
 
 }).call(this);
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -419,17 +460,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
 function sendtoapi(event) {
   const containers = document.querySelectorAll('.grid-positions-container');
   const jsonList = [];
-  const circuit=document.getElementById("circuits-search").value;
+  const circuit = document.getElementById("circuits-search").value;
+
   containers.forEach(container => {
-    container.querySelectorAll('.dname').forEach(item => {
-      let fname = item.querySelector('.fname').textContent.trim().toLowerCase();
+    const items = container.querySelectorAll('.dname');
+    const order = [2, 1, 4, 3, 6, 5, 8, 7, 10, 9, 12, 11, 14, 13, 16, 15, 18, 17, 20, 19];
+  
+    order.forEach(index => {
+      if (index - 1 < items.length) {
+        const item = items[index - 1];
+        let fname = item.querySelector('.fname').textContent.trim().toLowerCase();
         let lname = item.querySelector('.lname').textContent.trim().toLowerCase();
         fname = fname.charAt(0).toUpperCase() + fname.slice(1);
         lname = lname.charAt(0).toUpperCase() + lname.slice(1);
         const fullName = `${fname} ${lname}`;
-        jsonList.push(fullName);   
+        jsonList.push(fullName);
+      }
     });
-});
+  });
+
   if(jsonList.length<20){
     alert("Please fill all the positions");
   }else{
