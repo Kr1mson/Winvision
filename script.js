@@ -334,7 +334,7 @@ const drivers = [
 
 const container = document.getElementById('drivers-container');
 
-drivers.forEach(driver => {
+drivers.forEach((driver,index) => {
   const driv_card = document.createElement('div');
   driv_card.className = 'driv_card';
   driv_card.setAttribute('draggable', 'true');
@@ -353,12 +353,17 @@ drivers.forEach(driver => {
   const lname = document.createElement('div');
   lname.className = 'lname';
   lname.textContent = driver.dname;
+  const toggleId = `${index}`;
+  const toggle=document.createElement("div");
 
+  toggle.className = 'dnf-toggle';
+  toggle.innerHTML = `<input type="checkbox" id="${toggleId}" class="tgl tgl-skewed"><label for="${toggleId}" data-tg-on="DNF" data-tg-off="FINISHED" class="tgl-btn"></label>`;
   dname.appendChild(fname);
   dname.appendChild(lname);
 
   driv_card.appendChild(line);
   driv_card.appendChild(dname);
+  driv_card.appendChild(toggle);
 
   container.appendChild(driv_card);
 });
@@ -430,6 +435,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const order = [2, 1, 4, 3, 6, 5, 8, 7, 10, 9, 12, 11, 14, 13, 16, 15, 18, 17, 20, 19];
 
   document.addEventListener("dblclick", (event) => {
+    if (event.target.closest('.tgl, .tgl-btn')) {
+      return;
+    }
     const card = event.target.closest('.driv_card');
     if (card) {
       const parent = card.parentNode;
@@ -460,6 +468,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 function sendtoapi(event) {
   const containers = document.querySelectorAll('.grid-positions-container');
   const jsonList = [];
+  const dnfList = [];
   const circuit = document.getElementById("circuits-search").value;
 
   containers.forEach(container => {
@@ -474,12 +483,17 @@ function sendtoapi(event) {
         fname = fname.charAt(0).toUpperCase() + fname.slice(1);
         lname = lname.charAt(0).toUpperCase() + lname.slice(1);
         const fullName = `${fname} ${lname}`;
-        jsonList.push(fullName);
+        const toggle = item.closest('.driv_card').querySelector('.tgl');
+        if (toggle.checked) {
+          dnfList.push(fullName);
+        } else {
+          jsonList.push(fullName);
+        }
       }
     });
   });
 
-  if(jsonList.length<20){
+  if(jsonList.length+dnfList.length<20){
     alert("Please fill all the positions");
   }
   var chk=document.getElementById("go-icon").src;
@@ -488,6 +502,8 @@ function sendtoapi(event) {
   }
   else{
     alert("Chosen "+JSON.stringify(jsonList));
+    alert("DNF "+JSON.stringify(dnfList));
+
     alert("Chosen Circuit: "+ circuit);
     
     event.preventDefault();
