@@ -357,7 +357,7 @@ drivers.forEach((driver,index) => {
   const toggle=document.createElement("div");
 
   toggle.className = 'dnf-toggle';
-  toggle.innerHTML = `<input type="checkbox" id="${toggleId}" class="tgl tgl-skewed"><label for="${toggleId}" data-tg-on="DNF" data-tg-off="FINISHED" class="tgl-btn"></label>`;
+  toggle.innerHTML = `<input type="checkbox" id="${toggleId}" class="tgl tgl-skewed"><label for="${toggleId}" data-tg-on="DNF" data-tg-off="Bdia" class="tgl-btn"></label>`;
   dname.appendChild(fname);
   dname.appendChild(lname);
 
@@ -505,6 +505,23 @@ function sendtoapi(event) {
     alert("DNF "+JSON.stringify(dnfList));
 
     alert("Chosen Circuit: "+ circuit);
+    const lightsContainer = document.getElementById("lights_container");
+    const blur = document.getElementById("blurred-background");
+    blur.style.visibility="visible";
+    lightsContainer.style.visibility = 'visible';     
+      const bulbs = document.querySelectorAll('.bulb');
+      const delay = 1000;
+      const totalBulbs = bulbs.length;
+      bulbs.forEach((bulb, index) => {
+        setTimeout(() => {
+          bulb.classList.add('red_light');
+          }, index * delay);
+      });
+      setTimeout(() => {
+        bulbs.forEach(bulb => bulb.classList.remove('red_light'));
+        lightsContainer.style.visibility="hidden";
+        blur.style.visibility = 'hidden';
+      }, totalBulbs * delay);
     
     event.preventDefault();
     fetch('http://127.0.0.1:5000/predict', {

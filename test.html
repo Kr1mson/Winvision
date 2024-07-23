@@ -1,36 +1,60 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
- 
-</head>
-<body>
-    <center>
-        <div id="maindiv">
-            <h3>
-                <span>Swap items between elements</span></h3>
-            <div id="dragdiv">
-                <div class="child">
-                    A</div>
-                <div class="child">
-                    B</div>
-                <div class="child">
-                    C</div>
-                <div class="child">
-                    D</div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+        <link rel="stylesheet" href="test.css">
+    </head>
+    <body>
+        <button id="load">Load</button>
+        <div id="lights_container">
+            <div class="bulbs_container">
+                <div class="bulb_up"></div>
+                <div class="bulb"></div>
             </div>
-            <div id="dropdiv">
-                <div class="child">
-                    E</div>
-                <div class="child">
-                    F</div>
-                <div class="child">
-                    G</div>
-                <div class="child">
-                    H</div>
+            <div class="bulbs_container">
+                <div class="bulb_up"></div>
+                <div class="bulb"></div>
+            </div>
+            <div class="bulbs_container">
+                <div class="bulb_up"></div>
+                <div class="bulb"></div>
+            </div>
+            <div class="bulbs_container">
+                <div class="bulb_up"></div>
+                <div class="bulb"></div>
+            </div>
+            <div class="bulbs_container">
+                <div class="bulb_up"></div>
+                <div class="bulb"></div>
             </div>
         </div>
-    </center>
-</body>
+        <div id="txt">DONE</div>
+        <script>
+            const loadButton = document.getElementById("load");
+            const lightsContainer = document.getElementById("lights_container");
+            const txt = document.getElementById("txt");
+    
+            loadButton.addEventListener("click", () => {
+                lightsContainer.style.visibility = 'visible';     
+                const bulbs = document.querySelectorAll('.bulb');
+                const delay = 1000;
+                const totalBulbs = bulbs.length;
+    
+                bulbs.forEach((bulb, index) => {
+                    setTimeout(() => {
+                        bulb.classList.add('red_light');
+                    }, index * delay);
+                });
+    
+                setTimeout(() => {
+                    bulbs.forEach(bulb => bulb.classList.remove('red_light'));
+                    lightsContainer.style.visibility="hidden";
+                    txt.style.visibility = 'visible';
+                }, totalBulbs * delay);
+            });
+        </script>
+     
+    </body>
 </html>
+
+
