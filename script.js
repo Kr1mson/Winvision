@@ -8,7 +8,7 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(8, window.innerWidth / window.innerHeight, 0.1, 100);
 
-camera.position.set(1, 20, 10);
+camera.position.set(1, 10, 10);
 
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
