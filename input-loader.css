@@ -1,20 +1,16 @@
-#lights_container {
-  width: 350px;
+#lights-container {
+  width: 380px;
   height: fit-content;
   display: flex;
-  position:fixed;
-  background-color: black;
-  visibility: hidden;
-  left:50%;
-  top:50%;
-  transform: translate(-50%, -50%);
-  z-index:6;
+  background-color: rgba(0,0,0,0.35);
+  
   justify-content: center;
   align-items: center;
   padding:20px 10px 20px 10px;
-  border-radius: 5px;
   
 }
+
+
 #blurred-background {
   position: fixed;
   top: 0;
@@ -62,4 +58,40 @@
 .red_light {
   background-color: red;
   transition: all 0.2s;
+}
+.loader-text-upper, .loader-text-lower{
+  color:white;
+  font-family: F1-wide;
+  width:350px;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  text-align: center;
+  padding:15px 25px 10px 25px;}
+
+.loader-text-lower{
+  border-radius:0 0 10px 10px;
+  font-size:18px;
+}
+.loader-text-upper{
+  border-radius: 10px 10px 0 0;
+  font-size: 20px;
+
+
+}
+
+
+#loader-container{
+  width: 400px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  z-index:6;
+  visibility: hidden;
+
 }
