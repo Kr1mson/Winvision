@@ -507,10 +507,11 @@ function sendtoapi(event) {
     alert("Chosen Circuit: "+ circuit);
     const lightsContainer = document.getElementById("lights_container");
     const blur = document.getElementById("blurred-background");
+    const loader=document.getElementById("loader-container");
     blur.style.visibility="visible";
-    lightsContainer.style.visibility = 'visible';     
+    loader.style.visibility = 'visible';     
       const bulbs = document.querySelectorAll('.bulb');
-      const delay = 1000;
+      const delay = 800;
       const totalBulbs = bulbs.length;
       bulbs.forEach((bulb, index) => {
         setTimeout(() => {
@@ -519,7 +520,7 @@ function sendtoapi(event) {
       });
       setTimeout(() => {
         bulbs.forEach(bulb => bulb.classList.remove('red_light'));
-        lightsContainer.style.visibility="hidden";
+        loader.style.visibility="hidden";
         blur.style.visibility = 'hidden';
       }, totalBulbs * delay);
     
