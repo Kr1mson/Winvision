@@ -23,12 +23,13 @@ body {
     box-sizing: border-box;
     color: #FFFFFF;
     display: flex;
+    position: relative;
     font-family: F1;
     font-size: 18px;
     justify-content: center;
     line-height: 1em;
     max-width: 100%;
-    min-width: 140px;
+    min-width: 200px;
     padding: 15px;
     text-decoration: none;
     user-select: none;
@@ -37,6 +38,7 @@ body {
     white-space: nowrap;
     cursor: pointer;
     transition: all .3s;
+    margin-top: 100px;
    }
    
    .submit-btn:active,
@@ -67,7 +69,9 @@ body {
     justify-content: flex-start; /* Aligns items to the start of the container */
     gap: 40px; /* Adjusts the space between the cards */
     font-family: 'F1', sans-serif;
-    visibility: hidden;
+    background-color: rgba(0,0,0,0.7);
+    padding:50px;
+    border-radius: 20px;
   }
   .card {
     background-size: cover;
@@ -184,4 +188,23 @@ body {
     100% {
       background-position: 0% 50%;
     }
+  }
+  #prediction-results{
+    display: none;
+  }
+  #prediction-results h3{
+    font-family: F1-bold;
+    font-size: 40px;
+    background: linear-gradient(to right ,#FFFFFF, #FFFFFF,#FFFFFF, #E10600);
+    -webkit-text-fill-color: transparent;
+    
+    -webkit-background-clip: text;
+  }
+
+  #card1 .green{
+    color:goldenrod
+  }
+ 
+  #card2, #card3{
+    margin-top:50px;
   }

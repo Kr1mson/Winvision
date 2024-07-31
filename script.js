@@ -196,7 +196,7 @@ const maxDrivers = 20;
 function displayResults(results) {
   const resultsListElement = document.getElementById('results-list');
   resultsListElement.innerHTML = '';
-
+  const title=document.getElementById('prediction-results');
   const card1 = document.getElementById('card1');
   const card2 = document.getElementById('card2');
   const card3 = document.getElementById('card3');
@@ -249,7 +249,8 @@ function displayResults(results) {
           card3.style.backgroundImage = `url('f1_photos/driver photos/${lastName}.jpg')`;
       }
   });
-  cardContainer.style.visibility = 'visible';
+  cardContainer.style.display = 'flex';
+  title.style.display='flex';
 }
 
 
@@ -573,19 +574,19 @@ function sendtoapi(event) {
     const loader=document.getElementById("loader-container");
     blur.style.visibility="visible";
     loader.style.visibility = 'visible';     
-      const bulbs = document.querySelectorAll('.bulb');
-      const delay = 800;
-      const totalBulbs = bulbs.length;
-      bulbs.forEach((bulb, index) => {
-        setTimeout(() => {
-          bulb.classList.add('red_light');
-          }, index * delay);
-      });
+    const bulbs = document.querySelectorAll('.bulb');
+    const delay = 800;
+    const totalBulbs = bulbs.length;
+    bulbs.forEach((bulb, index) => {
       setTimeout(() => {
-        bulbs.forEach(bulb => bulb.classList.remove('red_light'));
-        loader.style.visibility="hidden";
-        blur.style.visibility = 'hidden';
-      }, totalBulbs * delay);
+        bulb.classList.add('red_light');
+      }, index * delay);
+    });
+    setTimeout(() => {
+      bulbs.forEach(bulb => bulb.classList.remove('red_light'));
+      loader.style.visibility="hidden";
+      blur.style.visibility = 'hidden';
+    }, totalBulbs * delay);
     
     event.preventDefault();
     fetch('http://127.0.0.1:5000/predict', {
