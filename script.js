@@ -26,7 +26,7 @@ loader.load(
   function (gltf) {
     object = gltf.scene;
     scene.add(object);
-    animate(); // Start the animation loop once the model is loaded
+    animate(); 
   },
   function (xhr) {
     console.log((xhr.loaded / xhr.total * 100) + '% loaded');
@@ -43,7 +43,6 @@ document.getElementById("container3D").appendChild(renderer.domElement);
 
 function updateModelPosition() {
   const scrollY = window.scrollY;
-  // Adjust these values as needed to change the effect of the scroll on the model's position
   const positionY = -scrollY / 100;
   if (object) {
     object.position.y = positionY;
@@ -55,7 +54,7 @@ camera.position.z = objToRender === "scuderia_ferrari_f1_sf23_2023" ? 25 : 500;
 const topLight = new THREE.DirectionalLight(0xffffff, 2); // (color, intensity)
 const topLight2 = new THREE.DirectionalLight(0xffffff, 3); // (color, intensity)
 topLight2.position.set(0, -500, 0);
-topLight.position.set(0, 500, 0); // top-left-ish
+topLight.position.set(0, 500, 0);
 topLight.castShadow = false;
 scene.add(topLight2);
 scene.add(topLight);
@@ -69,22 +68,22 @@ if (objToRender === "scuderia_ferrari_f1_sf23_2023") {
 
 const clock = new THREE.Clock();
 let transitionStart = null;
-const transitionDuration = 15; // Duration of each transition in seconds
+const transitionDuration = 15;
 let currentPhase = 0;
 
 const cameraPositions = [
   { x: 25, y: 10, z: 0 }, // Front view
   { x: -25, y: 10, z: 0 }, // Back view
   { x: 0, y: 10, z: 25 }, // Side view
-  { x: 0, y: 50, z: 0 } // Top-down view
+  { x: 0, y: 30, z: 0 } // Top-down view
 ];
 
 const carPositions = [
-  { x: 0, y: 0, z: 0 }, // Initial position
-  { x: 10, y: 0, z: 0 }, // Move right
-  { x: 10, y: 0, z: 10 }, // Move forward
-  { x: 0, y: 0, z: 10 }, // Move left
-  { x: 0, y: 0, z: 0 } // Move back to initial position
+  { x: 0, y: 0, z: 0 },
+  { x: 10, y: 0, z: 0 },
+  { x: 10, y: 0, z: 10 }, 
+  { x: 0, y: 0, z: 10 }, 
+  { x: 0, y: 0, z: 0 } 
 ];
 
 function animate() {
@@ -114,7 +113,6 @@ function animate() {
       object.position.y = THREE.MathUtils.lerp(carStartPos.y, carEndPos.y, transitionProgress);
       object.position.z = THREE.MathUtils.lerp(carStartPos.z, carEndPos.z, transitionProgress);
 
-      // Apply fade-out effect
       const overlay = document.getElementById('fadeOverlay');
       overlay.style.opacity = transitionProgress;
     } else {
@@ -126,7 +124,6 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-// Create a fade-out overlay
 const overlay = document.createElement('div');
 overlay.id = 'fadeOverlay';
 overlay.style.position = 'absolute';
@@ -596,7 +593,7 @@ function sendtoapi(event) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ selectedDrivers: jsonList, circuit: circuit, dnfDrivers: dnfList}),
+        body: JSON.stringify({ selectedDrivers: jsonList, circuit: circuit, dnfs: dnfList}),
     })
     .then((response) => response.json())
     .then((data) => {

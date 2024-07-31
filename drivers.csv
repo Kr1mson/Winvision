@@ -858,3 +858,4 @@ driverId,driverRef,number,code,forename,surname,dob,nationality,url,age,Name
 858,sargeant,2,SAR,Logan,Sargeant,2000-12-31,American,http://en.wikipedia.org/wiki/Logan_Sargeant,24,Logan Sargeant
 859,lawson,40,LAW,Liam,Lawson,2002-02-11,New Zealander,http://en.wikipedia.org/wiki/Liam_Lawson,22,Liam Lawson
 860,bearman,38,BEA,Oliver,Bearman,2005-05-08,British,http://en.wikipedia.org/wiki/Oliver_Bearman,19,Oliver Bearman
+999,dummy,0,DUM,Dummy,Driver,2000-01-01,None,,0,Dummy Driver
