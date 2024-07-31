@@ -23,7 +23,7 @@ body{
   
   scrollbar-width: thin;
   scrollbar-color: red white;
-  padding-bottom: 1000px;
+  padding-bottom: 200px;
 }
 ::-webkit-scrollbar {
   width: 10px;
