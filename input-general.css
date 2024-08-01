@@ -82,3 +82,6 @@ body{
   height: 100%;
   filter: grayscale(50%);
 }
+.no-scroll {
+  overflow: hidden;
+}

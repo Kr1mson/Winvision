@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-    font-family: "Montserrat", sans-serif;
+    font-family: F1-regular, sans-serif;
     background: radial-gradient(circle, #01136c, #600101, #7a0202, #2f019a);
     background-size: 400% 400%;
     animation: gradientAnimation 15s ease infinite;
@@ -64,7 +64,7 @@ body {
     transform: scale(0.9);
    }
   .cards-container {
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: flex-start; /* Aligns items to the start of the container */
     gap: 40px; /* Adjusts the space between the cards */

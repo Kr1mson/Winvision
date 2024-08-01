@@ -525,6 +525,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 }).call(this);
 document.addEventListener('DOMContentLoaded', (event) => {
   const yourButtonElement = document.getElementById('submit-btn');
+  
+
   if (yourButtonElement) {
     yourButtonElement.addEventListener('click', sendtoapi);
   }
@@ -534,7 +536,7 @@ function sendtoapi(event) {
   const jsonList = [];
   const dnfList = [];
   const circuit = document.getElementById("circuits-search").value;
-
+  
   containers.forEach(container => {
     const items = container.querySelectorAll('.dname');
     const order = [2, 1, 4, 3, 6, 5, 8, 7, 10, 9, 12, 11, 14, 13, 16, 15, 18, 17, 20, 19];
@@ -565,15 +567,17 @@ function sendtoapi(event) {
     alert("Please enter a valid Circuit");
   }
   else{
-    alert("Chosen "+JSON.stringify(jsonList));
-    alert("DNF "+JSON.stringify(dnfList));
+    //alert("Chosen "+JSON.stringify(jsonList));
+    //alert("DNF "+JSON.stringify(dnfList));
 
-    alert("Chosen Circuit: "+ circuit);
+    //alert("Chosen Circuit: "+ circuit);
     const lightsContainer = document.getElementById("lights_container");
     const blur = document.getElementById("blurred-background");
     const loader=document.getElementById("loader-container");
+    
     blur.style.visibility="visible";
     loader.style.visibility = 'visible';     
+    document.body.classList.add('no-scroll');
     const bulbs = document.querySelectorAll('.bulb');
     const delay = 800;
     const totalBulbs = bulbs.length;
@@ -586,8 +590,9 @@ function sendtoapi(event) {
       bulbs.forEach(bulb => bulb.classList.remove('red_light'));
       loader.style.visibility="hidden";
       blur.style.visibility = 'hidden';
+      document.body.classList.remove('no-scroll');
+      
     }, totalBulbs * delay);
-    
     event.preventDefault();
     fetch('http://127.0.0.1:5000/predict', {
         method: 'POST',
@@ -605,5 +610,4 @@ function sendtoapi(event) {
     });
   }
 }
-  
 
