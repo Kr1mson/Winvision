@@ -1,33 +1,38 @@
 @font-face {
-    font-family: 'F1';
-    src: url('fonts/Formula1-Regular.ttf') format('truetype');
-  }
-body {
-    margin: 0;
-      font-family: "Montserrat", sans-serif;
-      background: linear-gradient(144deg, #01136c, #470160, #7a0202, #2f019a);
-      background-size: 400% 400%;
-      animation: gradientAnimation 15s ease infinite;
-      min-block-size: 100dvh;
-      display: grid;
-      place-items: center;
-    }
-    @keyframes gradientAnimation {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-      #container3D canvas {
-        width: 100vw !important;
-        height: 100vh !important;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: -1;
-      }
+  font-family: 'F1';
+  src: url('fonts/Formula1-Regular.ttf') format('truetype');
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: "F1", sans-serif;
+}
+.intro{
+  height: 100vh;
+}
+.intro video{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.intro h1{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 80px;
+  transform: translate(-50%, -50%);
+}
+section{
+  height: 100vh;
+  color: black;
+}
+section h1{
+  padding-top: 300px;
+  text-align: center;
+  font-size: 60px;
+}
