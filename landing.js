@@ -10,7 +10,7 @@ const scene = new ScrollMagic.Scene({
   duration: 2000,
   triggerElement: intro,
   triggerHook: 0  
-}).addIndicators().setPin(intro).addTo(controller);
+}).setPin(intro).addTo(controller);
 
 let accelamount = 0.1;
 let scrollpos = 0;
