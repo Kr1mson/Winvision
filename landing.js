@@ -7,9 +7,9 @@ const end = section.querySelector('h1');
 const controller = new ScrollMagic.Controller();
 
 const scene = new ScrollMagic.Scene({
-  duration: 2000,
+  duration: 600,
   triggerElement: intro,
-  triggerHook: 0  
+  triggerHook: 0
 }).setPin(intro).addTo(controller);
 
 let accelamount = 0.1;
