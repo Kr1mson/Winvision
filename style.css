@@ -111,15 +111,15 @@ body {
   }
   
   .align {
-    padding: 1rem;
+    padding: ;
     display: flex;
     flex-direction: row;
-    gap: 70px;
+    gap: 75px;
     align-self: flex-start;
   }
   
   .red {
-  
+    text-align: left;
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -138,6 +138,7 @@ body {
   .green {
     width: 10px;
     height: 10px;
+    text-align: right;
     border-radius: 50%;
     background-color: transparent;
     /* box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280); */
@@ -205,6 +206,9 @@ body {
     color:goldenrod
   }
  
-  #card2, #card3{
+  #card2{
     margin-top:50px;
+  }
+  #card3{
+    margin-top:80px;
   }

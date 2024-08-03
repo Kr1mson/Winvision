@@ -558,18 +558,14 @@ function sendtoapi(event) {
       }
     });
   });
-
-  if(jsonList.length+dnfList.length<20){
-    alert("Please fill all the positions");
-  }
   var chk=document.getElementById("go-icon").src;
-  if(chk.includes("arrow")){
-    alert("Please enter a valid Circuit");
+  if (chk.includes("arrow") || jsonList.length + dnfList.length < 20) {
+        alert("Please enter all details");
   }
   else{
     //alert("Chosen "+JSON.stringify(jsonList));
     //alert("DNF "+JSON.stringify(dnfList));
-
+    //alert(jsonList.length + dnfList.length);
     //alert("Chosen Circuit: "+ circuit);
     const lightsContainer = document.getElementById("lights_container");
     const blur = document.getElementById("blurred-background");
