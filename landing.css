@@ -1,15 +1,26 @@
 @font-face {
-  font-family: 'F1';
+  font-family: 'F1-regular';
   src: url('fonts/Formula1-Regular.ttf') format('truetype');
 }
-
+@font-face {
+  font-family: 'F1-black';
+  src: url('fonts/Formula1-Black.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'F1-bold';
+  src: url('fonts/Formula1-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'F1-wide';
+  src: url('fonts/Formula1-Wide.ttf') format('truetype');
+}
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body{
-  font-family: "F1", sans-serif;
+  font-family: "F1-regular", sans-serif;
 }
 .intro{
   height: 100vh;
@@ -24,11 +35,11 @@ body{
   top: 20%;
   left: 50%;
   color: #fff;
-  font-size: 80px;
+  font-size: 60px;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.6);
-  padding:20px;
+  padding:20px 100px 20px 100px;
   border-radius: 20px;
+  font-family: "F1-bold" ;
 
 }
 .section1{
