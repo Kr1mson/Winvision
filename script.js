@@ -279,7 +279,7 @@ circuits.forEach(function(circuit) {
 });
 
 function filterCircuits() {
- let input = document.getElementById("circuits-search").value.toUpperCase();
+ let input = search.value.toUpperCase();
  let ul = document.getElementById("all-circuits");
  let ul2 = document.getElementById("matching-circuits");
  let li = ul.getElementsByTagName("li");
@@ -287,22 +287,23 @@ function filterCircuits() {
  if (input === '') {
     return;
 }
- for (let i = 0; i < li.length; i++) {
-     let txtValue = li[i].textContent || li[i].innerText;
-     if (txtValue.toUpperCase().indexOf(input) > -1) {
-         if (!ul2.querySelector(`li[data-circuit="${txtValue}"]`)) {
-             let li2 = document.createElement('li');
-             li2.textContent = txtValue;
-             li2.setAttribute('data-circuit', txtValue);
-             ul2.appendChild(li2); 
-         }
-     } else {
-         let existingLi = ul2.querySelector(`li[data-circuit="${txtValue}"]`);
-         if (existingLi) {
-             ul2.removeChild(existingLi);
-         }
-     }
- }
+for (let i = 0; i < li.length; i++) {
+  let txtValue = li[i].textContent || li[i].innerText;
+  if (txtValue.toUpperCase().indexOf(input) > -1) {
+      if (!ul2.querySelector(`li[data-circuit="${txtValue}"]`)) {
+          let li2 = document.createElement('li');
+          li2.textContent = txtValue;
+          li2.setAttribute('data-circuit', txtValue);
+          ul2.appendChild(li2);
+          li2.addEventListener('click', doStuff, false);
+      }
+  } else {
+      let existingLi = ul2.querySelector(`li[data-circuit="${txtValue}"]`);
+      if (existingLi) {
+          ul2.removeChild(existingLi);
+      }
+  }
+}
 }
 document.addEventListener('DOMContentLoaded', (event) => {
 const yourButtonElement = document.getElementById('circuit-open');
@@ -320,14 +321,14 @@ if (yourButtonElement) {
 
 
 function openNav() {
-document.getElementById("circuits-sidebar").style.visibility = "visible"; 
-document.getElementById("circuits-sidebar").style.animation = "0.15s slide-right"; 
+  document.getElementById("circuits-sidebar").style.visibility = "visible"
+  document.getElementById("circuits-sidebar").style.opacity = "1";
 
 }
 
 function closeNav() {
-document.getElementById("circuits-sidebar").style.visibility = "hidden"; 
-document.getElementById("circuits-sidebar").style.animation = "0.3s slide-left"; 
+  document.getElementById("circuits-sidebar").style.visibility = "hidden"
+  document.getElementById("circuits-sidebar").style.opacity = "0"; 
 
 
 }
@@ -346,30 +347,29 @@ if (yourButtonElement) {
 
 
 function openNavdriv() {
-document.getElementById("driver-sidebar").style.display = "flex"; 
+  document.getElementById("driver-sidebar").style.visibility = "visible"
+  document.getElementById("driver-sidebar").style.opacity = "1"; 
 }
 
 function closeNavdriv() {
-document.getElementById("driver-sidebar").style.display = "none"; 
+  document.getElementById("driver-sidebar").style.visibility = "hidden"
+  document.getElementById("driver-sidebar").style.opacity = "0"; 
 }
 
 
 var lis1 = document.getElementById("all-circuits").getElementsByTagName('li'); 
-var lis2 = document.getElementById("matching-circuits").getElementsByTagName('li'); 
 var search=document.getElementById("circuits-search");
 var icon=document.getElementById("go-icon");
 for (var i=0; i<lis1.length; i++) {
 lis1[i].addEventListener('click', doStuff, false);
 }
-for (var i=0; i<lis2.length; i++) {
-lis2[i].addEventListener('click', doStuff, false);
-}
+
 function doStuff() {
 search.value=this.innerHTML;
 icon.src="icons/tick.svg";
 }
 search.addEventListener('input', function() {
-icon.src = "icons/arrow-right.svg";
+icon.src = "icons/error.svg";
 });
 document.addEventListener('DOMContentLoaded', function() {
 const drivers = [

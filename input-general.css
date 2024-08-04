@@ -85,3 +85,64 @@ body{
 .no-scroll {
   overflow: hidden;
 }
+
+.tooltip {
+  position: fixed;
+  display: flex;
+  cursor: pointer;
+  font-family: "F1-bold", sans-serif;
+  justify-content: center;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width:300px;
+  background-color: rgba(0,0,0,0.9);
+  color: #E10600;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #333 transparent;
+}
+
+.tooltip .icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color:#E10600;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+}
+.tooltip-text-body{
+  margin-left:-20px;
+  list-style-type: square;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.tooltip-text-body li{
+  text-align: left;
+  color: #fff;
+  font-family:"F1-regular", sans-serif;
+}
