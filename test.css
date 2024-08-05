@@ -14,64 +14,35 @@
   font-family: 'F1-wide';
   src: url('fonts/Formula1-Wide.ttf') format('truetype');
 }
-.tooltip {
-  position: fixed;
-  display: flex;
-  cursor: pointer;
-  top:50%;
-  left:50%;
-  font-family: "F1-bold", sans-serif;
-  justify-content: center;
+
+.sweep-to-bottom {
+  position: relative;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transition: color 1000ms;
+  transition: color 1000ms;
 }
 
-.tooltip:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
-}
-
-.tooltip-text {
-  visibility: hidden;
-  width:300px;
-  background-color: rgba(0,0,0,0.7);
-  color: #E10600;
-  text-align: center;
-  border-radius: 5px;
-  padding: 10px;
-  position: absolute;
-  z-index: 1;
-  top: 125%;
-  
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip-text::after {
+.sweep-to-bottom:before {
   content: "";
   position: absolute;
-  top: -10px;
-  left: 50%;
-  margin-left: -10px;
-  border-width: 10px;
-  border-style: solid;
-  border-color: transparent transparent #333 transparent;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2098d1;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition: 300ms ease-out;
+  transition: 300ms ease-out;
 }
 
-.tooltip .icon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-color:#E10600;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 20px;
-}
-.tooltip-text-body{
-  margin-left:-20px;
-  list-style-type: square;
-}
-.tooltip-text-body li{
-  text-align: left;
-  color: #fff;
-  font-family:"F1-regular", sans-serif;
+.sweep-to-bottom:hover:before {
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
 }
