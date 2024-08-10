@@ -559,7 +559,7 @@ function sendtoapi(event) {
     });
   });
   var chk=document.getElementById("go-icon").src;
-  if (chk.includes("arrow") || jsonList.length + dnfList.length < 20) {
+  if (!chk.includes("tick") || jsonList.length + dnfList.length < 20){
         alert("Please enter all details");
   }
   else{

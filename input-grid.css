@@ -55,3 +55,6 @@
   border-image: linear-gradient(to bottom, white 0%, transparent 100%) 1;
 
 }
+.grid-line:hover{
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
