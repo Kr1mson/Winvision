@@ -196,7 +196,7 @@ body {
   #prediction-results h3{
     font-family: F1-bold;
     font-size: 40px;
-    background: linear-gradient(to right ,#FFFFFF, #FFFFFF,#FFFFFF, #E10600);
+    background: linear-gradient(to right ,#cecccf, #6b0074,#ffffff, #E10600);
     -webkit-text-fill-color: transparent;
     
     -webkit-background-clip: text;
