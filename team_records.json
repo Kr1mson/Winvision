@@ -1,0 +1,92 @@
+[
+    {
+        "Pos": "1",
+        "Pts": "408",
+        "Drivers": [
+            "Max Verstappen",
+            "Sergio Perez"
+        ],
+        "Team": "Red Bull Racing"
+    },
+    {
+        "Pos": "2",
+        "Pts": "366",
+        "Drivers": [
+            "Lando Norris",
+            "Oscar Piastri"
+        ],
+        "Team": "McLaren"
+    },
+    {
+        "Pos": "3",
+        "Pts": "345",
+        "Drivers": [
+            "Charles Leclerc",
+            "Carlos Sainz"
+        ],
+        "Team": "Ferrari"
+    },
+    {
+        "Pos": "4",
+        "Pts": "266",
+        "Drivers": [
+            "Lewis Hamilton",
+            "George Russell"
+        ],
+        "Team": "Mercedes"
+    },
+    {
+        "Pos": "5",
+        "Pts": "73",
+        "Drivers": [
+            "Fernando Alonso",
+            "Lance Stroll"
+        ],
+        "Team": "Aston Martin"
+    },
+    {
+        "Pos": "6",
+        "Pts": "34",
+        "Drivers": [
+            "Yuki Tsunoda",
+            "Daniel Ricciardo"
+        ],
+        "Team": "RB"
+    },
+    {
+        "Pos": "7",
+        "Pts": "27",
+        "Drivers": [
+            "Nico Hulkenberg",
+            "Kevin Magnussen"
+        ],
+        "Team": "Haas"
+    },
+    {
+        "Pos": "8",
+        "Pts": "11",
+        "Drivers": [
+            "Pierre Gasly",
+            "Esteban Ocon"
+        ],
+        "Team": "Alpine"
+    },
+    {
+        "Pos": "9",
+        "Pts": "4",
+        "Drivers": [
+            "Alexander Albon",
+            "Logan Sargeant"
+        ],
+        "Team": "Williams"
+    },
+    {
+        "Pos": "10",
+        "Pts": "0",
+        "Drivers": [
+            "Valtteri Bottas",
+            "Zhou Guanyu"
+        ],
+        "Team": "Kick Sauber"
+    }
+]
