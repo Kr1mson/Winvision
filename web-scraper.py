@@ -50,6 +50,11 @@ for i in range(len(constructors)):
     records.append(record)
 
 # Convert the list of records to a JSON file
+<<<<<<< HEAD:test/web-scraper.py
 with open('test/team_records.json', 'w') as json_file:
     json.dump(records, json_file, indent=4)
 print("fin")
+=======
+with open('team_records.json', 'w') as json_file:
+    json.dump(records, json_file,indent=4)
+>>>>>>> 91c32aefaa21ed60ab347c23e11b5bca59b7888d:web-scraper.py
