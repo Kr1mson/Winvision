@@ -86,13 +86,13 @@ fetch('team_records.json')
                                 <div class="driver-name"> ${formatDriverName(team.Drivers[0])} </div>
                                 <div class="driver-img">
                                   <img class="driver-photo" src="drivers/${formatDriverPhoto(team.Drivers[0])}01.avif" alt="${team.Drivers[0]} Photo">                                </div>
-                                </div>
+                                
                             </div>
                             <div class="driver-first">
                                 <div class="driver-name"> ${formatDriverName(team.Drivers[1])} </div>
                                 <div class="driver-img">
                                   <img class="driver-photo" src="drivers/${formatDriverPhoto(team.Drivers[1])}01.avif" alt="${team.Drivers[1]} Photo">                                </div>
-                                </div>
+                              
                             </div>
                             
                         </div>
