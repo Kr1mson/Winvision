@@ -1,19 +1,3 @@
-@font-face {
-  font-family: 'F1-regular';
-  src: url('fonts/Formula1-Regular.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'F1-black';
-  src: url('fonts/Formula1-Black.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'F1-bold';
-  src: url('fonts/Formula1-Bold.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'F1-wide';
-  src: url('fonts/Formula1-Wide.ttf') format('truetype');
-}
 .outer-grid {
   padding: 100px;
   display: grid;
@@ -39,7 +23,6 @@
   justify-content: space-between;
   transition: padding 0.15s;
   padding-right: 10px;
-  margin-left:100px;
 }
 
 .team-container:hover{

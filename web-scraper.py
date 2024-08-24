@@ -10,9 +10,9 @@ s = soup.find('div', class_='flex flex-col tablet:grid tablet:grid-cols-12 [&>*]
 drivers=s.find_all('p')
 teams=s.find_all('span')
 imgs=s.find_all('img')
-path_team='test/team-logos/'
-path_drivers='test/drivers/'
-path_cars='test/cars/'
+path_team='team-logos/'
+path_drivers='drivers/'
+path_cars='cars/'
 
 img_indices=sorted(set(range(1,40,4)) | set(range(2,40,4)))
 team_imgs=[imgs[i]['src'] for i in range(0,40,4)]
@@ -50,11 +50,6 @@ for i in range(len(constructors)):
     records.append(record)
 
 # Convert the list of records to a JSON file
-<<<<<<< HEAD:test/web-scraper.py
-with open('test/team_records.json', 'w') as json_file:
+with open('team_records.json', 'w') as json_file:
     json.dump(records, json_file, indent=4)
 print("fin")
-=======
-with open('team_records.json', 'w') as json_file:
-    json.dump(records, json_file,indent=4)
->>>>>>> 91c32aefaa21ed60ab347c23e11b5bca59b7888d:web-scraper.py
