@@ -4,6 +4,9 @@ import urllib.request
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 import os
+import re
+import seaborn as sns
+import matplotlib.pyplot as plt
 r = requests.get('https://www.formula1.com/en/teams')
 soup=BeautifulSoup(r.content,'html.parser')
 s = soup.find('div', class_='flex flex-col tablet:grid tablet:grid-cols-12 [&>*]:col-span-12 tablet:[&>*]:col-span-6 gap-xl laptop:[&>*]:col-span-6 desktop:[&>*]:col-span-6')
@@ -28,6 +31,22 @@ for url in driver_imgs:
     save_image(url, path_drivers)
 for url in car_imgs:
     save_image(url, path_cars)
+res=s.find_all('div')
+all_classes = []
+for div in res:
+    class_names = div.get('class')
+    if class_names: 
+        all_classes.extend(class_names)
+
+hex_pattern = re.compile(r'^[0-9A-Fa-f]{6}$')
+unique_classes = all_classes
+codes=[]
+for i in unique_classes:
+  if i.startswith('text'):
+    codes.append(i.split('-')[1])
+hex_codes = [code for code in codes if hex_pattern.match(code)]
+
+
 
 #[urlparse(driver_imgs[2*i]).path.split('/')[-1],urlparse(driver_imgs[2*i+1]).path.split('/')[-1]]
 rank=[drivers[i].text for i in range(0,70,7)]
@@ -45,11 +64,13 @@ for i in range(len(constructors)):
         'Team': constructors[i],
         'Driver-img':[urlparse(driver_imgs[2*i]).path.split('/')[-1],urlparse(driver_imgs[2*i+1]).path.split('/')[-1]],
         'Team-img':urlparse(team_imgs[i]).path.split('/')[-1],
-        'Car-img':urlparse(car_imgs[i]).path.split('/')[-1]
+        'Car-img':urlparse(car_imgs[i]).path.split('/')[-1],
+        'Color-code':hex_codes[i]
     }
     records.append(record)
 
 # Convert the list of records to a JSON file
 with open('team_records.json', 'w') as json_file:
     json.dump(records, json_file, indent=4)
+
 print("fin")

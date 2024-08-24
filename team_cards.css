@@ -11,7 +11,6 @@
   width: 550px;
   height:350px;
   border: double 4px transparent;
-  background-image: linear-gradient(white, white), radial-gradient(circle at top left, #000000,#0abf95);
   background-origin: border-box;
   background-clip: padding-box, border-box; 
   border-radius: 0 20px 0 0;
@@ -101,7 +100,6 @@ hr{
 .line{
   height:38px;
   width:5px;
-  background-color:rgb(54, 113, 198);
   align-self: center;
 }
 .team-name{

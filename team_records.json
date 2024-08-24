@@ -12,7 +12,8 @@
             "serper01.png"
         ],
         "Team-img": "red-bull-racing-logo.png",
-        "Car-img": "red-bull-racing.png"
+        "Car-img": "red-bull-racing.png",
+        "Color-code": "3671C6"
     },
     {
         "Pos": "2",
@@ -27,7 +28,8 @@
             "oscpia01.png"
         ],
         "Team-img": "mclaren-logo.png",
-        "Car-img": "mclaren.png"
+        "Car-img": "mclaren.png",
+        "Color-code": "FF8000"
     },
     {
         "Pos": "3",
@@ -42,7 +44,8 @@
             "carsai01.png"
         ],
         "Team-img": "ferrari-logo.png",
-        "Car-img": "ferrari.png"
+        "Car-img": "ferrari.png",
+        "Color-code": "E80020"
     },
     {
         "Pos": "4",
@@ -57,7 +60,8 @@
             "georus01.png"
         ],
         "Team-img": "mercedes-logo.png",
-        "Car-img": "mercedes.png"
+        "Car-img": "mercedes.png",
+        "Color-code": "27F4D2"
     },
     {
         "Pos": "5",
@@ -72,7 +76,8 @@
             "lanstr01.png"
         ],
         "Team-img": "aston-martin-logo.png",
-        "Car-img": "aston-martin.png"
+        "Car-img": "aston-martin.png",
+        "Color-code": "229971"
     },
     {
         "Pos": "6",
@@ -87,7 +92,8 @@
             "danric01.png"
         ],
         "Team-img": "rb-logo.png",
-        "Car-img": "rb.png"
+        "Car-img": "rb.png",
+        "Color-code": "6692FF"
     },
     {
         "Pos": "7",
@@ -102,7 +108,8 @@
             "kevmag01.png"
         ],
         "Team-img": "haas-logo.png",
-        "Car-img": "haas.png"
+        "Car-img": "haas.png",
+        "Color-code": "B6BABD"
     },
     {
         "Pos": "8",
@@ -117,7 +124,8 @@
             "estoco01.png"
         ],
         "Team-img": "alpine-logo.png",
-        "Car-img": "alpine.png"
+        "Car-img": "alpine.png",
+        "Color-code": "0093CC"
     },
     {
         "Pos": "9",
@@ -132,7 +140,8 @@
             "logsar01.png"
         ],
         "Team-img": "williams-logo.png",
-        "Car-img": "williams.png"
+        "Car-img": "williams.png",
+        "Color-code": "64C4FF"
     },
     {
         "Pos": "10",
@@ -147,6 +156,7 @@
             "guazho01.png"
         ],
         "Team-img": "kick-sauber-logo.png",
-        "Car-img": "kick-sauber.png"
+        "Car-img": "kick-sauber.png",
+        "Color-code": "52E252"
     }
 ]
