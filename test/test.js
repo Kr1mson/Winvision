@@ -1,4 +1,4 @@
-fetch('/team_records.json')
+fetch('/driver_records.json')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -8,67 +8,49 @@ fetch('/team_records.json')
   .then(data => {
     const teamContainer = document.getElementById('outer-grid');
 
-    data.forEach(team => {
+    data.forEach(driver => {
       const teamDiv = document.createElement('div');
-      teamDiv.className = 'team-container';
-
-      const formatDriverName = (fullName) => {
-        const nameParts = fullName.split(' ');
-        const lastName = nameParts.pop(); 
-        const firstName = nameParts.join(' '); 
-        return `${firstName} <strong>${lastName}</strong>`; 
-      };
+      teamDiv.className = 'driver-container';
+      teamDiv.style.backgroundImage = `linear-gradient(white, white), radial-gradient(circle at top left, #000000, ${driver['Color-code']})`;
+      
+      teamDiv.addEventListener('mouseenter', () => {
+        teamDiv.style.backgroundImage = `linear-gradient(white, white), radial-gradient(circle at top left, ${driver['Color-code']}, #000000)`;
+      });
+      
+      teamDiv.addEventListener('mouseleave', () => {
+        teamDiv.style.backgroundImage = `linear-gradient(white, white), radial-gradient(circle at top left, #000000, ${driver['Color-code']})`;
+      });
+      
+      
 
       teamDiv.innerHTML = `
-        <img src="/BG/linesforcards.svg" class="curved-line" />
-
-        <div class="pos-container">
-          <div>
-            <div class="ranking">${team.Pos}</div>
-            <div class="points-container">
-              <div class="points">${team.Pts}</div>
-              <div class="points-txt-container">
-                <h3>PTS</h3>
-              </div>
-            </div>
-          </div>
-          <div class="team-name-container">
-            <div class="team-logo">
-              <img class="team-logo-img" src="/team-logos/${team['Team-img']}" alt="${team.Team} Logo" />
-            </div>
-            <div class="team-line">
-              <div class="team-name">${team.Team}</div>
-              <div class="line"></div>
-            </div>
+      <div class="pos-container">
+        <div class="ranking-container">
+          <span>${driver['Pos']}</span>
+        </div>
+        <div class="points-container">
+          <span class="points">${driver['Pts']}</span>
+          <span class="points-txt">PTS</span>
+        </div>
+      </div>
+      <hr>
+      <div class="team-container">
+        <img class="flag-photo" src="/flag-photos/${driver['Flag-img']}">
+        <span>${driver['Team']}</span>
+      </div>
+      <hr>
+      <div class="driver-info-container">
+        <div class="driver-info">
+          <img class="driver-no-photo" src="/driver-no-photos/${driver['No-img']}">
+          <div class="driver-name">
+            <span class="first-name">${driver['Fname']}</span>
+            <span class="last-name">${driver['Lname']}</span>
           </div>
         </div>
-        
-        <hr>
-        
-        <div class="driver-container">
-          <div class="driver-img">
-            <img class="driver-photo" src="/drivers/${team['Driver-img'][0]}" alt="${team.Drivers[0]} Photo" />
-          </div>
-          <div class="names">
-            <div class="driver-name-top">
-              <p>${formatDriverName(team.Drivers[0])}</p>
-            </div>
-            <div class="driver-name-bottom">
-              <p>${formatDriverName(team.Drivers[1])}</p>
-            </div>
-          </div>
-          <div class="driver-img">
-            <img class="driver-photo" src="/drivers/${team['Driver-img'][1]}" alt="${team.Drivers[1]} Photo" />
-          </div>
-        </div>
-        
-        <hr>
-        <div class="car-container">
-          <img class="car-img" src="/cars/${team['Car-img']}" alt="${team.Team.toLowerCase().replace(/ /g, '-')}" />
-        </div>
-      `;
-
-      teamContainer.appendChild(teamDiv);
+        <img class="driver-photo" src="/drivers/${driver['Driver-img']}">
+      </div>
+`;
+teamContainer.appendChild(teamDiv);
     });
   })
   .catch(error => {
