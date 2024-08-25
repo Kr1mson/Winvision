@@ -6,7 +6,14 @@
             "Max Verstappen",
             "Sergio Perez"
         ],
-        "Team": "Red Bull Racing"
+        "Team": "Red Bull Racing",
+        "Driver-img": [
+            "maxver01.png",
+            "serper01.png"
+        ],
+        "Team-img": "red-bull-racing-logo.png",
+        "Car-img": "red-bull-racing.png",
+        "Color-code": "3671C6"
     },
     {
         "Pos": "2",
@@ -15,7 +22,14 @@
             "Lando Norris",
             "Oscar Piastri"
         ],
-        "Team": "McLaren"
+        "Team": "McLaren",
+        "Driver-img": [
+            "lannor01.png",
+            "oscpia01.png"
+        ],
+        "Team-img": "mclaren-logo.png",
+        "Car-img": "mclaren.png",
+        "Color-code": "FF8000"
     },
     {
         "Pos": "3",
@@ -24,7 +38,14 @@
             "Charles Leclerc",
             "Carlos Sainz"
         ],
-        "Team": "Ferrari"
+        "Team": "Ferrari",
+        "Driver-img": [
+            "chalec01.png",
+            "carsai01.png"
+        ],
+        "Team-img": "ferrari-logo.png",
+        "Car-img": "ferrari.png",
+        "Color-code": "E80020"
     },
     {
         "Pos": "4",
@@ -33,7 +54,14 @@
             "Lewis Hamilton",
             "George Russell"
         ],
-        "Team": "Mercedes"
+        "Team": "Mercedes",
+        "Driver-img": [
+            "lewham01.png",
+            "georus01.png"
+        ],
+        "Team-img": "mercedes-logo.png",
+        "Car-img": "mercedes.png",
+        "Color-code": "27F4D2"
     },
     {
         "Pos": "5",
@@ -42,7 +70,14 @@
             "Fernando Alonso",
             "Lance Stroll"
         ],
-        "Team": "Aston Martin"
+        "Team": "Aston Martin",
+        "Driver-img": [
+            "feralo01.png",
+            "lanstr01.png"
+        ],
+        "Team-img": "aston-martin-logo.png",
+        "Car-img": "aston-martin.png",
+        "Color-code": "229971"
     },
     {
         "Pos": "6",
@@ -51,7 +86,14 @@
             "Yuki Tsunoda",
             "Daniel Ricciardo"
         ],
-        "Team": "RB"
+        "Team": "RB",
+        "Driver-img": [
+            "yuktsu01.png",
+            "danric01.png"
+        ],
+        "Team-img": "rb-logo.png",
+        "Car-img": "rb.png",
+        "Color-code": "6692FF"
     },
     {
         "Pos": "7",
@@ -60,7 +102,14 @@
             "Nico Hulkenberg",
             "Kevin Magnussen"
         ],
-        "Team": "Haas"
+        "Team": "Haas",
+        "Driver-img": [
+            "nichul01.png",
+            "kevmag01.png"
+        ],
+        "Team-img": "haas-logo.png",
+        "Car-img": "haas.png",
+        "Color-code": "B6BABD"
     },
     {
         "Pos": "8",
@@ -69,7 +118,14 @@
             "Pierre Gasly",
             "Esteban Ocon"
         ],
-        "Team": "Alpine"
+        "Team": "Alpine",
+        "Driver-img": [
+            "piegas01.png",
+            "estoco01.png"
+        ],
+        "Team-img": "alpine-logo.png",
+        "Car-img": "alpine.png",
+        "Color-code": "0093CC"
     },
     {
         "Pos": "9",
@@ -78,7 +134,14 @@
             "Alexander Albon",
             "Logan Sargeant"
         ],
-        "Team": "Williams"
+        "Team": "Williams",
+        "Driver-img": [
+            "alealb01.png",
+            "logsar01.png"
+        ],
+        "Team-img": "williams-logo.png",
+        "Car-img": "williams.png",
+        "Color-code": "64C4FF"
     },
     {
         "Pos": "10",
@@ -87,6 +150,13 @@
             "Valtteri Bottas",
             "Zhou Guanyu"
         ],
-        "Team": "Kick Sauber"
+        "Team": "Kick Sauber",
+        "Driver-img": [
+            "valbot01.png",
+            "guazho01.png"
+        ],
+        "Team-img": "kick-sauber-logo.png",
+        "Car-img": "kick-sauber.png",
+        "Color-code": "52E252"
     }
 ]
