@@ -1,7 +1,7 @@
 [
     {
         "Pos": "1",
-        "Pts": "277",
+        "Pts": "303",
         "Fname": "Max",
         "Lname": "Verstappen",
         "Team": "Red Bull Racing",
@@ -14,7 +14,7 @@
     },
     {
         "Pos": "2",
-        "Pts": "199",
+        "Pts": "241",
         "Fname": "Lando",
         "Lname": "Norris",
         "Team": "McLaren",
@@ -27,7 +27,7 @@
     },
     {
         "Pos": "3",
-        "Pts": "177",
+        "Pts": "217",
         "Fname": "Charles",
         "Lname": "Leclerc",
         "Team": "Ferrari",
@@ -40,7 +40,7 @@
     },
     {
         "Pos": "4",
-        "Pts": "167",
+        "Pts": "197",
         "Fname": "Oscar",
         "Lname": "Piastri",
         "Team": "McLaren",
@@ -53,7 +53,7 @@
     },
     {
         "Pos": "5",
-        "Pts": "162",
+        "Pts": "184",
         "Fname": "Carlos",
         "Lname": "Sainz",
         "Team": "Ferrari",
@@ -66,7 +66,7 @@
     },
     {
         "Pos": "6",
-        "Pts": "150",
+        "Pts": "164",
         "Fname": "Lewis",
         "Lname": "Hamilton",
         "Team": "Mercedes",
@@ -79,7 +79,7 @@
     },
     {
         "Pos": "7",
-        "Pts": "131",
+        "Pts": "143",
         "Fname": "Sergio",
         "Lname": "Perez",
         "Team": "Red Bull Racing",
@@ -92,7 +92,7 @@
     },
     {
         "Pos": "8",
-        "Pts": "116",
+        "Pts": "128",
         "Fname": "George",
         "Lname": "Russell",
         "Team": "Mercedes",
@@ -105,7 +105,7 @@
     },
     {
         "Pos": "9",
-        "Pts": "49",
+        "Pts": "50",
         "Fname": "Fernando",
         "Lname": "Alonso",
         "Team": "Aston Martin",
@@ -170,6 +170,19 @@
     },
     {
         "Pos": "14",
+        "Pts": "8",
+        "Fname": "Pierre",
+        "Lname": "Gasly",
+        "Team": "Alpine",
+        "Flag-img": [
+            "France.jpg"
+        ],
+        "No-img": "PIEGAS01.png",
+        "Driver-img": "piegas01.png",
+        "Color-code": "#0093CC"
+    },
+    {
+        "Pos": "15",
         "Pts": "6",
         "Fname": "Oliver",
         "Lname": "Bearman",
@@ -182,21 +195,8 @@
         "Color-code": "#E80020"
     },
     {
-        "Pos": "15",
-        "Pts": "6",
-        "Fname": "Pierre",
-        "Lname": "Gasly",
-        "Team": "Alpine",
-        "Flag-img": [
-            "France.jpg"
-        ],
-        "No-img": "PIEGAS01.png",
-        "Driver-img": "piegas01.png",
-        "Color-code": "#0093CC"
-    },
-    {
         "Pos": "16",
-        "Pts": "5",
+        "Pts": "6",
         "Fname": "Kevin",
         "Lname": "Magnussen",
         "Team": "Haas",
@@ -209,6 +209,19 @@
     },
     {
         "Pos": "17",
+        "Pts": "6",
+        "Fname": "Alexander",
+        "Lname": "Albon",
+        "Team": "Williams",
+        "Flag-img": [
+            "Thailand.jpg"
+        ],
+        "No-img": "ALEALB01.png",
+        "Driver-img": "alealb01.png",
+        "Color-code": "#64C4FF"
+    },
+    {
+        "Pos": "18",
         "Pts": "5",
         "Fname": "Esteban",
         "Lname": "Ocon",
@@ -219,19 +232,6 @@
         "No-img": "ESTOCO01.png",
         "Driver-img": "estoco01.png",
         "Color-code": "#0093CC"
-    },
-    {
-        "Pos": "18",
-        "Pts": "4",
-        "Fname": "Alexander",
-        "Lname": "Albon",
-        "Team": "Williams",
-        "Flag-img": [
-            "Thailand.jpg"
-        ],
-        "No-img": "ALEALB01.png",
-        "Driver-img": "alealb01.png",
-        "Color-code": "#64C4FF"
     },
     {
         "Pos": "19",
@@ -262,14 +262,14 @@
     {
         "Pos": "21",
         "Pts": "0",
-        "Fname": "Valtteri",
-        "Lname": "Bottas",
-        "Team": "Kick Sauber",
+        "Fname": "Franco",
+        "Lname": "Colapinto",
+        "Team": "Williams",
         "Flag-img": [
-            "Finland.jpg"
+            "Argentina.jpg"
         ],
-        "No-img": "VALBOT01.png",
-        "Driver-img": "valbot01.png",
-        "Color-code": "#52E252"
+        "No-img": "FRACOL01.png",
+        "Driver-img": "fracol01.png",
+        "Color-code": "#64C4FF"
     }
 ]
