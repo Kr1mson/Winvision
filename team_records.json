@@ -1,7 +1,7 @@
 [
     {
         "Pos": "1",
-        "Pts": "408",
+        "Pts": "446",
         "Drivers": [
             "Max Verstappen",
             "Sergio Perez"
@@ -17,7 +17,7 @@
     },
     {
         "Pos": "2",
-        "Pts": "366",
+        "Pts": "438",
         "Drivers": [
             "Lando Norris",
             "Oscar Piastri"
@@ -33,7 +33,7 @@
     },
     {
         "Pos": "3",
-        "Pts": "345",
+        "Pts": "407",
         "Drivers": [
             "Charles Leclerc",
             "Carlos Sainz"
@@ -49,7 +49,7 @@
     },
     {
         "Pos": "4",
-        "Pts": "266",
+        "Pts": "292",
         "Drivers": [
             "Lewis Hamilton",
             "George Russell"
@@ -65,7 +65,7 @@
     },
     {
         "Pos": "5",
-        "Pts": "73",
+        "Pts": "74",
         "Drivers": [
             "Fernando Alonso",
             "Lance Stroll"
@@ -97,7 +97,7 @@
     },
     {
         "Pos": "7",
-        "Pts": "27",
+        "Pts": "28",
         "Drivers": [
             "Nico Hulkenberg",
             "Kevin Magnussen"
@@ -113,7 +113,7 @@
     },
     {
         "Pos": "8",
-        "Pts": "11",
+        "Pts": "13",
         "Drivers": [
             "Pierre Gasly",
             "Esteban Ocon"
@@ -129,15 +129,15 @@
     },
     {
         "Pos": "9",
-        "Pts": "4",
+        "Pts": "6",
         "Drivers": [
             "Alexander Albon",
-            "Logan Sargeant"
+            "Franco Colapinto"
         ],
         "Team": "Williams",
         "Driver-img": [
             "alealb01.png",
-            "logsar01.png"
+            "fracol01.png"
         ],
         "Team-img": "williams-logo.png",
         "Car-img": "williams.png",
