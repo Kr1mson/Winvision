@@ -1,4 +1,4 @@
-from flask import Flask, jsonify,request, url_for, redirect, render_template
+from flask import Flask, jsonify,request
 import pickle
 import numpy as np
 import pandas as pd
@@ -112,7 +112,6 @@ def predict():
 # Format the probabilities as percentages
     formatted_output = [f"Driver Name: {pred['Driver Name']}, Grid: {pred['Grid']}, Prediction: {pred['Prediction']}, Probability: {pred['Probability'] * 100:.2f}%"
     for pred in top_predictions]
-
     return jsonify(formatted_output)
 
 if __name__ == '__main__':
