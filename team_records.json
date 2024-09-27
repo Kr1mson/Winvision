@@ -1,23 +1,7 @@
 [
     {
         "Pos": "1",
-        "Pts": "446",
-        "Drivers": [
-            "Max Verstappen",
-            "Sergio Perez"
-        ],
-        "Team": "Red Bull Racing",
-        "Driver-img": [
-            "maxver01.png",
-            "serper01.png"
-        ],
-        "Team-img": "red-bull-racing-logo.png",
-        "Car-img": "red-bull-racing.png",
-        "Color-code": "3671C6"
-    },
-    {
-        "Pos": "2",
-        "Pts": "438",
+        "Pts": "516",
         "Drivers": [
             "Lando Norris",
             "Oscar Piastri"
@@ -32,8 +16,24 @@
         "Color-code": "FF8000"
     },
     {
+        "Pos": "2",
+        "Pts": "475",
+        "Drivers": [
+            "Max Verstappen",
+            "Sergio Perez"
+        ],
+        "Team": "Red Bull Racing",
+        "Driver-img": [
+            "maxver01.png",
+            "serper01.png"
+        ],
+        "Team-img": "red-bull-racing-logo.png",
+        "Car-img": "red-bull-racing.png",
+        "Color-code": "3671C6"
+    },
+    {
         "Pos": "3",
-        "Pts": "407",
+        "Pts": "441",
         "Drivers": [
             "Charles Leclerc",
             "Carlos Sainz"
@@ -49,7 +49,7 @@
     },
     {
         "Pos": "4",
-        "Pts": "292",
+        "Pts": "329",
         "Drivers": [
             "Lewis Hamilton",
             "George Russell"
@@ -65,7 +65,7 @@
     },
     {
         "Pos": "5",
-        "Pts": "74",
+        "Pts": "86",
         "Drivers": [
             "Fernando Alonso",
             "Lance Stroll"
@@ -97,7 +97,7 @@
     },
     {
         "Pos": "7",
-        "Pts": "28",
+        "Pts": "31",
         "Drivers": [
             "Nico Hulkenberg",
             "Kevin Magnussen"
@@ -113,6 +113,22 @@
     },
     {
         "Pos": "8",
+        "Pts": "16",
+        "Drivers": [
+            "Alexander Albon",
+            "Franco Colapinto"
+        ],
+        "Team": "Williams",
+        "Driver-img": [
+            "alealb01.png",
+            "fracol01.png"
+        ],
+        "Team-img": "williams-logo.png",
+        "Car-img": "williams.png",
+        "Color-code": "64C4FF"
+    },
+    {
+        "Pos": "9",
         "Pts": "13",
         "Drivers": [
             "Pierre Gasly",
@@ -126,22 +142,6 @@
         "Team-img": "alpine-logo.png",
         "Car-img": "alpine.png",
         "Color-code": "0093CC"
-    },
-    {
-        "Pos": "9",
-        "Pts": "6",
-        "Drivers": [
-            "Alexander Albon",
-            "Franco Colapinto"
-        ],
-        "Team": "Williams",
-        "Driver-img": [
-            "alealb01.png",
-            "fracol01.png"
-        ],
-        "Team-img": "williams-logo.png",
-        "Car-img": "williams.png",
-        "Color-code": "64C4FF"
     },
     {
         "Pos": "10",
