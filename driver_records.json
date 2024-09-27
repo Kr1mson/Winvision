@@ -1,7 +1,7 @@
 [
     {
         "Pos": "1",
-        "Pts": "303",
+        "Pts": "331",
         "Fname": "Max",
         "Lname": "Verstappen",
         "Team": "Red Bull Racing",
@@ -14,7 +14,7 @@
     },
     {
         "Pos": "2",
-        "Pts": "241",
+        "Pts": "279",
         "Fname": "Lando",
         "Lname": "Norris",
         "Team": "McLaren",
@@ -27,7 +27,7 @@
     },
     {
         "Pos": "3",
-        "Pts": "217",
+        "Pts": "245",
         "Fname": "Charles",
         "Lname": "Leclerc",
         "Team": "Ferrari",
@@ -40,7 +40,7 @@
     },
     {
         "Pos": "4",
-        "Pts": "197",
+        "Pts": "237",
         "Fname": "Oscar",
         "Lname": "Piastri",
         "Team": "McLaren",
@@ -53,7 +53,7 @@
     },
     {
         "Pos": "5",
-        "Pts": "184",
+        "Pts": "190",
         "Fname": "Carlos",
         "Lname": "Sainz",
         "Team": "Ferrari",
@@ -66,7 +66,7 @@
     },
     {
         "Pos": "6",
-        "Pts": "164",
+        "Pts": "174",
         "Fname": "Lewis",
         "Lname": "Hamilton",
         "Team": "Mercedes",
@@ -79,20 +79,7 @@
     },
     {
         "Pos": "7",
-        "Pts": "143",
-        "Fname": "Sergio",
-        "Lname": "Perez",
-        "Team": "Red Bull Racing",
-        "Flag-img": [
-            "Mexico.jpg"
-        ],
-        "No-img": "SERPER01.png",
-        "Driver-img": "serper01.png",
-        "Color-code": "#3671C6"
-    },
-    {
-        "Pos": "8",
-        "Pts": "128",
+        "Pts": "155",
         "Fname": "George",
         "Lname": "Russell",
         "Team": "Mercedes",
@@ -104,8 +91,21 @@
         "Color-code": "#27F4D2"
     },
     {
+        "Pos": "8",
+        "Pts": "144",
+        "Fname": "Sergio",
+        "Lname": "Perez",
+        "Team": "Red Bull Racing",
+        "Flag-img": [
+            "Mexico.jpg"
+        ],
+        "No-img": "SERPER01.png",
+        "Driver-img": "serper01.png",
+        "Color-code": "#3671C6"
+    },
+    {
         "Pos": "9",
-        "Pts": "50",
+        "Pts": "62",
         "Fname": "Fernando",
         "Lname": "Alonso",
         "Team": "Aston Martin",
@@ -119,19 +119,6 @@
     {
         "Pos": "10",
         "Pts": "24",
-        "Fname": "Lance",
-        "Lname": "Stroll",
-        "Team": "Aston Martin",
-        "Flag-img": [
-            "Canada.jpg"
-        ],
-        "No-img": "LANSTR01.png",
-        "Driver-img": "lanstr01.png",
-        "Color-code": "#229971"
-    },
-    {
-        "Pos": "11",
-        "Pts": "22",
         "Fname": "Nico",
         "Lname": "Hulkenberg",
         "Team": "Haas",
@@ -141,6 +128,19 @@
         "No-img": "NICHUL01.png",
         "Driver-img": "nichul01.png",
         "Color-code": "#B6BABD"
+    },
+    {
+        "Pos": "11",
+        "Pts": "24",
+        "Fname": "Lance",
+        "Lname": "Stroll",
+        "Team": "Aston Martin",
+        "Flag-img": [
+            "Canada.jpg"
+        ],
+        "No-img": "LANSTR01.png",
+        "Driver-img": "lanstr01.png",
+        "Color-code": "#229971"
     },
     {
         "Pos": "12",
@@ -158,6 +158,19 @@
     {
         "Pos": "13",
         "Pts": "12",
+        "Fname": "Alexander",
+        "Lname": "Albon",
+        "Team": "Williams",
+        "Flag-img": [
+            "Thailand.jpg"
+        ],
+        "No-img": "ALEALB01.png",
+        "Driver-img": "alealb01.png",
+        "Color-code": "#64C4FF"
+    },
+    {
+        "Pos": "14",
+        "Pts": "12",
         "Fname": "Daniel",
         "Lname": "Ricciardo",
         "Team": "RB",
@@ -169,7 +182,7 @@
         "Color-code": "#6692FF"
     },
     {
-        "Pos": "14",
+        "Pos": "15",
         "Pts": "8",
         "Fname": "Pierre",
         "Lname": "Gasly",
@@ -182,20 +195,20 @@
         "Color-code": "#0093CC"
     },
     {
-        "Pos": "15",
-        "Pts": "6",
+        "Pos": "16",
+        "Pts": "7",
         "Fname": "Oliver",
         "Lname": "Bearman",
-        "Team": "Ferrari",
+        "Team": "Haas",
         "Flag-img": [
             "United%20Kingdom.jpg"
         ],
         "No-img": "OLIBEA01.png",
         "Driver-img": "olibea01.png",
-        "Color-code": "#E80020"
+        "Color-code": "#B6BABD"
     },
     {
-        "Pos": "16",
+        "Pos": "17",
         "Pts": "6",
         "Fname": "Kevin",
         "Lname": "Magnussen",
@@ -206,19 +219,6 @@
         "No-img": "KEVMAG01.png",
         "Driver-img": "kevmag01.png",
         "Color-code": "#B6BABD"
-    },
-    {
-        "Pos": "17",
-        "Pts": "6",
-        "Fname": "Alexander",
-        "Lname": "Albon",
-        "Team": "Williams",
-        "Flag-img": [
-            "Thailand.jpg"
-        ],
-        "No-img": "ALEALB01.png",
-        "Driver-img": "alealb01.png",
-        "Color-code": "#64C4FF"
     },
     {
         "Pos": "18",
@@ -235,6 +235,19 @@
     },
     {
         "Pos": "19",
+        "Pts": "4",
+        "Fname": "Franco",
+        "Lname": "Colapinto",
+        "Team": "Williams",
+        "Flag-img": [
+            "Argentina.jpg"
+        ],
+        "No-img": "FRACOL01.png",
+        "Driver-img": "fracol01.png",
+        "Color-code": "#64C4FF"
+    },
+    {
+        "Pos": "20",
         "Pts": "0",
         "Fname": "Zhou",
         "Lname": "Guanyu",
@@ -247,7 +260,7 @@
         "Color-code": "#52E252"
     },
     {
-        "Pos": "20",
+        "Pos": "21",
         "Pts": "0",
         "Fname": "Logan",
         "Lname": "Sargeant",
@@ -257,19 +270,6 @@
         ],
         "No-img": "LOGSAR01.png",
         "Driver-img": "logsar01.png",
-        "Color-code": "#64C4FF"
-    },
-    {
-        "Pos": "21",
-        "Pts": "0",
-        "Fname": "Franco",
-        "Lname": "Colapinto",
-        "Team": "Williams",
-        "Flag-img": [
-            "Argentina.jpg"
-        ],
-        "No-img": "FRACOL01.png",
-        "Driver-img": "fracol01.png",
         "Color-code": "#64C4FF"
     }
 ]
