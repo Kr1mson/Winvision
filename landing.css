@@ -63,10 +63,19 @@ body{
 }
 .parallaxParent {
   height: 120vh;
+  position: relative;
   overflow: hidden;
 }
 .parallaxParent > * {
   height: 200%;
   position: relative;
   top: -100%;
+}
+.team-wrapper{
+  position: absolute;
+  width:100vw;
+  height: 120vh;
+  z-index:1;
+  display: flex;
+  align-items: center;
 }
