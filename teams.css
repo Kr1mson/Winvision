@@ -20,13 +20,14 @@ body{
 }
 
 .team-container{
-  height: 90vh;
+  height: 100vh;
   position: relative;
-  width: 90vw;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   padding:10px;
   margin: 10px;
+  z-index: 1;
 }
 .team-container:before{
   content: ' ';
@@ -34,6 +35,7 @@ body{
   position: absolute;
   left: 0;
   top: 0;
+  opacity: 0.5;
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
@@ -73,21 +75,29 @@ body{
   font-size: 16px;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center center;
-  filter: grayscale(100%);
+  background-position: center;
+  filter: grayscale(80%);
   color: white;
   margin: 0 5px;
-  border-radius: 10px;
-  border:black solid 2px;
-
+  border: double 4px transparent;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 20px;
   transition: transform 0.5s ease, filter 0.5s ease;
   justify-content: space-between;
+}
+.team-logo{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
 }
 .slider-item p{
   padding: 10px 0 0 10px;
   margin: 0;
   width:15%;
   color:black;
+  z-index: 1;
   font-family: "F1-wide";
   align-self: top;
 }
@@ -106,11 +116,14 @@ body{
 }
 .item-container p{
   font-size: 20px;
-  width: 100%;
+  width: 80%;
   text-align: center;
   font-family: "F1-bold";
-  
+  position: absolute;
   padding: 0;
+  left:50%;
+  transform: translate(-50%,0);
+  bottom:0;
   margin:70px 0 0 0;
   backdrop-filter: blur(50px) saturate(80%);
 }
@@ -255,7 +268,6 @@ body{
 }
 .team-info-container{
   height: 100%;
-  width:100%;
   display: flex;
   position: relative;
   
@@ -268,6 +280,7 @@ body{
 }
 .team-pts-container{
   display: flex;
+  background-color: ;
   justify-content: end;
   margin-right: 30px;
 }

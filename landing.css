@@ -66,6 +66,7 @@ body{
 }
 .parallaxParent {
   height: 120vh;
+  position: relative;
   overflow: hidden;
 }
 .parallaxParent > * {
@@ -73,6 +74,7 @@ body{
   position: relative;
   top: -100%;
 }
+<<<<<<< HEAD
 
 
 /* From Uiverse.io by vnuny */ 
@@ -343,3 +345,13 @@ body{
 }
 
 
+=======
+.team-wrapper{
+  position: absolute;
+  width:100vw;
+  height: 120vh;
+  z-index:1;
+  display: flex;
+  align-items: center;
+}
+>>>>>>> e0290521a9467cd83dcd59d9b88780ea88693cb5
