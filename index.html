@@ -1,266 +1,129 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>WinVision Race Prediction</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="/input-circuits.css">
-    <link rel="stylesheet" href="/input-drivers.css">
-    <link rel="stylesheet" href="/input-general.css">
-    <link rel="stylesheet" href="/input-grid.css">
-    <link rel="stylesheet" href="/input-loader.css">
-  </head>
-  <body>
-    <div class="header">
-      <button>
-        <img>
-      </button>
-    </div>
-    <div id="blurred-background"></div>
-    <div class="page-title-container"></div>
-    <div id="loader-container">
-      <div class="loader-text-upper">IT'S LIGHTS OUT</div>
-      <div id="lights-container">
-
-          <div class="bulbs_container">
-              <div class="bulb_up"></div>
-              <div class="bulb"></div>
-          </div>
-          <div class="bulbs_container">
-              <div class="bulb_up"></div>
-              <div class="bulb"></div>
-          </div>
-          <div class="bulbs_container">
-              <div class="bulb_up"></div>
-              <div class="bulb"></div>
-          </div>
-          <div class="bulbs_container">
-              <div class="bulb_up"></div>
-              <div class="bulb"></div>
-          </div>
-          <div class="bulbs_container">
-              <div class="bulb_up"></div>
-              <div class="bulb"></div>
-          </div>
-      </div>
-      <div class="loader-text-lower">and Away We Go...</div>
-  </div>
-    
-    
-      <div id="container3D"></div>
-      <div class="page-title">STARTING GRID</div>
+    <head>
+        <link rel="stylesheet" href="assets/css/landing.css"/>
+        <link rel="stylesheet" href="assets/css/team_cards.css">
+        <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/teams.css"/>
+        <title>WinVision</title>
+        
+    </head>
+    <body>
+        <div class="intro">
+          <h1>WinVision</h1>
+            <video src= "assets/videos/smallwinvis4.webm" preload="auto"></video>
+              
+        </div>
+        <section class = "section1">
+          <h1>
+            Racing Experience Redefined
+          </h1>
+      </section>
+      <div class="team-wrapper">
+        <div class="team-container">
+          <div class="team-view" id="team-view">
+              <div class="first-driver-pos">
+                  <div class="team-pos-container">
+                      <p class="pos" id="pos">1</p>
+                      <p class="pos-txt" id="pos-txt">POS</p>
+                  </div>
+                  <div class="first-driver">
+                      <img class="driver-img" id="fdriver-img" src="assets/images/drivers/maxver01.png">
+                      <div class="driver-info">
+                          <div class="info-img-container">
+                              <img class="no-img" id="fdriver-no-img" src="assets/images/driver-no-photos/MAXVER01.png">
       
-      <div class="grid-container" id="grid-container">
-        <div class="grid-positions-container" id="onetwo">
-          <div class="pos-down">
-            <div class="pos-down-no">02</div>
-            <div class="grid-line" ></div>
-          </div>
-          <div class="pos-up">
-            <div class="pos-up-no">01</div>
-            <div class="grid-line"></div>
-          </div>
-        </div>
-        <div class="grid-positions-container" id="threefour">
-          <div class="pos-down">
-            <div class="pos-down-no">04</div>
-            <div class="grid-line"></div>
-          </div>
-          <div class="pos-up">
-            <div class="pos-up-no">03</div>
-            <div class="grid-line"></div>
-          </div>
-        </div>
-        <div class="grid-positions-container" id="fivesix">
-          <div class="pos-down">
-            <div class="pos-down-no">06</div>
-            <div class="grid-line"></div>
-          </div>
-          <div class="pos-up">
-            <div class="pos-up-no">05</div>
-            <div class="grid-line"></div>
-          </div>
-        </div>
-        <div class="grid-positions-container" id="seveneight">
-          <div class="pos-down">
-            <div class="pos-down-no">08</div>
-            <div class="grid-line"></div>
-          </div>
-          <div class="pos-up">
-            <div class="pos-up-no">07</div>
-            <div class="grid-line"></div>
-          </div>
-        </div>
-        <div class="grid-positions-container" id="nineten">
-          <div class="pos-down">
-            <div class="pos-down-no">10</div>
-            <div class="grid-line"></div>
-          </div>
-          <div class="pos-up">
-            <div class="pos-up-no">09</div>
-            <div class="grid-line"></div>
-          </div>
-        </div>
-        <div class="grid-positions-container" id="eleventwelve">
-          <div class="pos-down">
-            <div class="pos-down-no">12</div>
-            <div class="grid-line"></div>
-          </div>
-          <div class="pos-up">
-            <div class="pos-up-no">11</div>
-            <div class="grid-line"></div>
-          </div>
-        </div>
-        <div class="grid-positions-container" id="thirteenfourteen">
-          <div class="pos-down">
-            <div class="pos-down-no">14</div>
-            <div class="grid-line"></div>
-          </div>
-          <div class="pos-up">
-            <div class="pos-up-no">13</div>
-            <div class="grid-line"></div>
-          </div>
-        </div>
-        <div class="grid-positions-container" id="fifteensixteen">
-          <div class="pos-down">
-            <div class="pos-down-no">16</div>
-            <div class="grid-line"></div>
-          </div>
-          <div class="pos-up">
-            <div class="pos-up-no">15</div>
-            <div class="grid-line"></div>
-          </div>
-        </div>
-        <div class="grid-positions-container" id="seventeeneighteen">
-          <div class="pos-down">
-            <div class="pos-down-no">18</div>
-            <div class="grid-line"></div>
-          </div>
-          <div class="pos-up">
-            <div class="pos-up-no">17</div>
-            <div class="grid-line"></div>
-          </div>
-        </div>
-        <div class="grid-positions-container" id="ninteentwenty">
-          <div class="pos-down">
-            <div class="pos-down-no">20</div>
-            <div class="grid-line"></div>
-          </div>
-          <div class="pos-up">
-            <div class="pos-up-no">19</div>
-            <div class="grid-line"></div>
-          </div>
-        </div>
-        
-      </div>
-      <button id="submit-btn" class="submit-btn">
-        <span class="text">LET'S RACE</span>
-      </button>
-    </div>
-    <!-- <img class="bg-img" src="BG/wallpaperflare.com_wallpaper.jpg"> -->
-    <button id="circuit-open" class="circuit-open">CIRCUITS</button>
-    <button id="driver-open" class="driver-open">DRIVERS</button>
-
-    <div id="circuits-sidebar" class="circuits-sidebar">
-      <div class="tooltip">
-        <div class="icon">i</div>
-        <div class="tooltip-text">CIRCUITS SIDEBAR
-            <ul class="tooltip-text-body">
-              <li>Type in the search bar to find a circuit.</li>
-              <li>Select a circuit from the list.</li>
-              <li>A tick mark will show a correct selection.</li>
-            </ul>
-        </div>
-    </div>
-      <button class="circuit-collapse" id="circuit-collapse">CIRCUITS</button>
-      <div class="circuit-title">
-       CIRCUITS
-      </div>
-      <div class="circuits-search-container">
-        <img class="search-icon" src="icons/search.svg">
-        <input id="circuits-search" class="circuits-search" type="text" placeholder="Search..." onkeyup="filterCircuits()">
-        <img id="go-icon" class="go-icon" src="icons/error.svg">
-      </div>
-      <div class="search-results-container">
-        <div class="matching-results-container">
-          <div class="matching-results">Matching Results</div>
-          <ul id="matching-circuits" class="matching-circuits">
-            
-          </ul>
-
-        </div>
-        <div class="more-results-container">
-          <div class="more-results">All Circuits</div>
-          <ul id="all-circuits" class="all-circuits"></ul>
-          
-
-        </div>
-        
-      </div>
-    </div>
-    <div id="driver-sidebar" class="driver-sidebar">
-      <div class="tooltip">
-        <div class="icon">i</div>
-        <div class="tooltip-text">DRIVERS SIDEBAR
-            <ul class="tooltip-text-body">
-              <li>Double tap or drag to add drivers.</li>
-              <li>Toggle button to set DNF</li>
-              <li>Drag and hover to swap drivers.</li>
-            </ul>
-        </div>
-    </div>
-      <button class="driver-collapse" id="driver-collapse">DRIVERS</button>
-      <div class="driver-title">DRIVERS
-        
-      </div>
-      <div class="drivers-container" id="drivers-container">
-        
-    </div>
-          <script type = "module" src="script.js"></script>
-          
-
-        </div>
-        
-      </div>
-    </div>
-    <div id="prediction-results">
-      <h3>Predicted Podium</h3>
-      <ul id="results-list"></ul>
-  </div>
-    
-
-<div class="cards-container">
-  <div class="card" id="card2">
-      <div class="align">
-          <span class="red"><h3></h3></span>
-          <span class="yellow"></span>
-          <span class="green"><h4>2ND</h4></span>
-      </div>
-      <p></p>
-  </div>
+                              <img class="flag" id="fdriver-flag" src="assets/images/flag-photos/Netherlands.jpg">
+                          </div>
+                          <p class="driver-name" id="fdriver-name">Max</p>
   
-
-  <div class="card" id="card1">
-      <div class="align">
-          <span class="red"><h3></h3></span>
-          <span class="yellow"></span>
-          <span class="green"><h4>1ST</h4></span>
+                      </div>
+                      
+                  </div>
+              </div>
+              <div class="team-middle-container">
+                  <div id="team-info-container" class="team-info-container">
+                      <div class="mid-line" id="mid-line">
+                          
+                      </div>
+                      <div class="team-info">
+                          <div class="team-name-container" id="team-name-container">
+                              <p class="team-name-fg" id="team-name-fg"></p>
+                          </div>
+                          <div class="team-pts-container">
+                              <img class="team-logo-img" id="team-logo" src="assets/images/team-logos/red-bull-racing-logo.png">
+                              <div class="team-pts">
+                                  <p class="team-pts-val" id="team-pts-val">100</p>
+                                  <p class="team-pts-txt">PTS</p>
+                              </div>
+                          </div>
+                          
+                      </div>
+                      <img class="car-img" id="car" src="assets/images/cars/red-bull-racing.png">
+                      
+                      
+                  </div>
+              </div>
+              
+              <div class="second-driver-pos">
+                  <div class="second-driver">
+                      <img class="driver-img" id="sdriver-img" src="assets/images/drivers/serper01.png">
+                      <div class="driver-info">
+                          <div class="info-img-container">
+                              <img class="flag" id="sdriver-flag" src="assets/images/flag-photos/Mexico.jpg">
+                              <img class="no-img" id="sdriver-no-img" src="assets/images/driver-no-photos/SERPER01.png">
+                              
+                          </div>
+                          <p class="driver-name" id="sdriver-name"></p>
+      
+                      </div>
+                  </div>
+                  
+                  
+              </div>
+          
+          </div>
+          
+          <div id="slider" class="slider-container">
+              <div id="slider-content" class="slider-content"></div>
+          
+          </div>
       </div>
-      <p></p>
-  </div>
-
-  <div class="card" id="card3">
-      <div class="align">
-          <span class="red"><h3></h3></span>
-          <span class="yellow"></span>
-          <span class="green"><h4>3RD</h4></span>
       </div>
-      <p></p>
-  </div>
-</div>
-    
-    
+      
+      <div class="spacer s0"></div>
+        <div id="parallax1" class="parallaxParent">
+	        <div style="background-image: url(assets/images/f1_photos/bg2.jpg);"></div>
+        </div>
+      <div class="spacer s1">
+	      <section class = "section1">
+          <h1>Its lights out and away we go!</h1>
+        </section>
+      </div>
+      <div class="spacer s0"></div>
+      <div id="parallax2" class="parallaxParent">
+        <a href="index.html">
+          <button id="modelpg">winvision_predictor</button>
+        </a>
+	      <div style="background-image: url(assets/images/f1_photos/bg1.jpg);"></div>
+      </div>
+      
+      <div class="spacer s1">
+	      <section class = "section2">
+          <h1>WinVision Pit Crew</h1>
+          <p>MAU</p>
+          <i class="em em-smirk_cat" aria-role="presentation" aria-label="CAT FACE WITH WRY SMILE"></i>
+        </section>
+      </div>
+      
+        
 
-    <script type="module" src="script.js"></script>
-  </body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.js" integrity="sha512-judXDFLnOTJsUwd55lhbrX3uSoSQSOZR6vNrsll+4ViUFv+XOIr/xaIK96soMj6s5jVszd7I97a0H+WhgFwTEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.js" integrity="sha512-mq6TSOBEH8eoYFBvyDQOQf63xgTeAk7ps+MHGLWZ6Byz0BqQzrP+3GIgYL+KvLaWgpL8XgDVbIRYQeLa3Vqu6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="module" src="/assets/js/landing.js"></script>
+        <script type="module" src="/assets/js/teams.js"></script>
+      </body>
+
 </html>

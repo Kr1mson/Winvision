@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>WinVision Race Prediction</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/input-circuits.css">
+    <link rel="stylesheet" href="assets/css/input-drivers.css">
+    <link rel="stylesheet" href="assets/css/input-general.css">
+    <link rel="stylesheet" href="assets/css/input-grid.css">
+    <link rel="stylesheet" href="assets/css/input-loader.css">
+  </head>
+  <body>
+    <div class="header">
+      <button>
+        <img>
+      </button>
+    </div>
+    <div id="blurred-background"></div>
+    <div class="page-title-container"></div>
+    <div id="loader-container">
+      <div class="loader-text-upper">IT'S LIGHTS OUT</div>
+      <div id="lights-container">
+
+          <div class="bulbs_container">
+              <div class="bulb_up"></div>
+              <div class="bulb"></div>
+          </div>
+          <div class="bulbs_container">
+              <div class="bulb_up"></div>
+              <div class="bulb"></div>
+          </div>
+          <div class="bulbs_container">
+              <div class="bulb_up"></div>
+              <div class="bulb"></div>
+          </div>
+          <div class="bulbs_container">
+              <div class="bulb_up"></div>
+              <div class="bulb"></div>
+          </div>
+          <div class="bulbs_container">
+              <div class="bulb_up"></div>
+              <div class="bulb"></div>
+          </div>
+      </div>
+      <div class="loader-text-lower">and Away We Go...</div>
+  </div>
+    
+    
+      <div id="container3D"></div>
+      <div class="page-title">STARTING GRID</div>
+      
+      <div class="grid-container" id="grid-container">
+        <div class="grid-positions-container" id="onetwo">
+          <div class="pos-down">
+            <div class="pos-down-no">02</div>
+            <div class="grid-line" ></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">01</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="threefour">
+          <div class="pos-down">
+            <div class="pos-down-no">04</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">03</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="fivesix">
+          <div class="pos-down">
+            <div class="pos-down-no">06</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">05</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="seveneight">
+          <div class="pos-down">
+            <div class="pos-down-no">08</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">07</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="nineten">
+          <div class="pos-down">
+            <div class="pos-down-no">10</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">09</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="eleventwelve">
+          <div class="pos-down">
+            <div class="pos-down-no">12</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">11</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="thirteenfourteen">
+          <div class="pos-down">
+            <div class="pos-down-no">14</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">13</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="fifteensixteen">
+          <div class="pos-down">
+            <div class="pos-down-no">16</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">15</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="seventeeneighteen">
+          <div class="pos-down">
+            <div class="pos-down-no">18</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">17</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        <div class="grid-positions-container" id="ninteentwenty">
+          <div class="pos-down">
+            <div class="pos-down-no">20</div>
+            <div class="grid-line"></div>
+          </div>
+          <div class="pos-up">
+            <div class="pos-up-no">19</div>
+            <div class="grid-line"></div>
+          </div>
+        </div>
+        
+      </div>
+      <button id="submit-btn" class="submit-btn">
+        <span class="text">LET'S RACE</span>
+      </button>
+    </div>
+    <!-- <img class="bg-img" src="BG/wallpaperflare.com_wallpaper.jpg"> -->
+    <button id="circuit-open" class="circuit-open">CIRCUITS</button>
+    <button id="driver-open" class="driver-open">DRIVERS</button>
+
+    <div id="circuits-sidebar" class="circuits-sidebar">
+      <div class="tooltip">
+        <div class="icon">i</div>
+        <div class="tooltip-text">CIRCUITS SIDEBAR
+            <ul class="tooltip-text-body">
+              <li>Type in the search bar to find a circuit.</li>
+              <li>Select a circuit from the list.</li>
+              <li>A tick mark will show a correct selection.</li>
+            </ul>
+        </div>
+    </div>
+      <button class="circuit-collapse" id="circuit-collapse">CIRCUITS</button>
+      <div class="circuit-title">
+       CIRCUITS
+      </div>
+      <div class="circuits-search-container">
+        <img class="search-icon" src="assets/images/icons/search.svg">
+        <input id="circuits-search" class="circuits-search" type="text" placeholder="Search..." onkeyup="filterCircuits()">
+        <img id="go-icon" class="go-icon" src="assets/images/icons/error.svg">
+      </div>
+      <div class="search-results-container">
+        <div class="matching-results-container">
+          <div class="matching-results">Matching Results</div>
+          <ul id="matching-circuits" class="matching-circuits">
+            
+          </ul>
+
+        </div>
+        <div class="more-results-container">
+          <div class="more-results">All Circuits</div>
+          <ul id="all-circuits" class="all-circuits"></ul>
+          
+
+        </div>
+        
+      </div>
+    </div>
+    <div id="driver-sidebar" class="driver-sidebar">
+      <div class="tooltip">
+        <div class="icon">i</div>
+        <div class="tooltip-text">DRIVERS SIDEBAR
+            <ul class="tooltip-text-body">
+              <li>Double tap or drag to add drivers.</li>
+              <li>Toggle button to set DNF</li>
+              <li>Drag and hover to swap drivers.</li>
+            </ul>
+        </div>
+    </div>
+      <button class="driver-collapse" id="driver-collapse">DRIVERS</button>
+      <div class="driver-title">DRIVERS
+        
+      </div>
+      <div class="drivers-container" id="drivers-container">
+        
+    </div>
+          
+
+        </div>
+        
+      </div>
+    </div>
+    <div id="prediction-results">
+      <h3>Predicted Podium</h3>
+      <ul id="results-list"></ul>
+  </div>
+    
+
+<div class="cards-container">
+  <div class="card" id="card2">
+      <div class="align">
+          <span class="red"><h3></h3></span>
+          <span class="yellow"></span>
+          <span class="green"><h4>2ND</h4></span>
+      </div>
+      <p></p>
+  </div>
+  
+
+  <div class="card" id="card1">
+      <div class="align">
+          <span class="red"><h3></h3></span>
+          <span class="yellow"></span>
+          <span class="green"><h4>1ST</h4></span>
+      </div>
+      <p></p>
+  </div>
+
+  <div class="card" id="card3">
+      <div class="align">
+          <span class="red"><h3></h3></span>
+          <span class="yellow"></span>
+          <span class="green"><h4>3RD</h4></span>
+      </div>
+      <p></p>
+  </div>
+</div>
+    
+    
+
+    <script type="module" src="/assets/js/script.js"></script>
+  </body>
+</html>
