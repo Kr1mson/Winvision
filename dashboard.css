@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.chart_container {
+    width: 40rem;
+    margin: 20vh auto;
+    padding: auto;
+}
