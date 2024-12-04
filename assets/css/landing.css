@@ -42,6 +42,16 @@ body{
   font-family: "F1-bold" ;
 
 }
+.intro a{
+  position: absolute;
+  background-image: linear-gradient(144deg,#AF40FF, #150775 50%,#7b0505);
+  padding:10px 20px;
+  border-radius: 5px;
+  color:white;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .section1{
   height: 20vh;
   color: black;
@@ -55,12 +65,17 @@ body{
   height: 100vh;
   color: white;
   background-color: black;
+   
 }
 .section2 h1{
-  padding-top: 300px;
+  padding-top: 30px;
   text-align: center;
   font-size: 60px;
+  margin-bottom:30px;
 }
+
+
+
 .parallaxParent {
   height: 120vh;
   position: relative;
@@ -77,5 +92,89 @@ body{
   height: 120vh;
   z-index:1;
   display: flex;
+  align-items: center;
+}
+.text-wrapper{
+  position: absolute;
+  width:100vw;
+  height: 120vh;
+  background-color: black;
+  z-index:1;
+  opacity: 0.9;
+  padding:100px;
+  
+}
+.text-wrapper h1{
+  font-family: F1-bold;
+  color:white;
+}
+.text-wrapper p{
+  font-family: F1-regular;
+  color:grey;
+}
+.text-wrapper h3{
+  color:white;
+}
+.text-wrapper span{
+  background: linear-gradient(to right ,#E10600, #FFFFFF);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-size: 30px;
+}
+.race-stripe-container {
+  position: relative;
+  overflow: hidden;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.race-image {
+  width: 800px;
+  height: 100%;
+  object-fit: cover;
+}
+.pit-wrapper {
+  width: 100%;
+  height: 80%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap:100px;
+}
+
+.pit-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/assets/images/f1_photos/pit_crew.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3; 
+  z-index: 1; 
+}
+
+.pit-wrapper > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+.crew-mem{
+  width:200px;
+  border-radius: 10px;
+  background-color: black;
+  opacity: 0.8;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
