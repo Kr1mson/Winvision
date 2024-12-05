@@ -77,10 +77,19 @@ def get_driver_records():
     codes2 = [cls.split('-')[1] for cls in sum(all_classes2, []) if cls.startswith('text')]
     hex_pattern = re.compile(r'^[0-9A-Fa-f]{6}$')
     hex_codes2 = ["#" + code for code in codes2 if hex_pattern.match(code)]
+    print("First names:", fname)
+    print("Last names:", lname)
 
     # Create driver records
     driver_records = []
     for i in range(len(pos)):
+        print(f"Processing driver: {fname[i]} {lname[i]}")
+
+        # Skip specified drivers
+        if (fname[i] == 'Oliver' and lname[i] == 'Bearman') or \
+           (fname[i] == 'Jack' and lname[i] == 'Doohan'):
+            print(f"Skipping driver: {fname[i]} {lname[i]}")
+            continue
         driver_record = {
             'Pos': pos[i],
             'Pts': points[i],
@@ -93,6 +102,7 @@ def get_driver_records():
             'Color-code': hex_codes2[i]
         }
         driver_records.append(driver_record)
+    print(f"Processed {len(driver_records)} driver records")
 
     return jsonify(driver_records)
 

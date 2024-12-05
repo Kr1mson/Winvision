@@ -40,8 +40,8 @@ const teamMap = new Map();
 const driverMap = new Map();
 
 Promise.all([
-  fetch('http://localhost:5000/api/team_records').then(response => response.json()),
-  fetch('http://localhost:5000/api/driver_records').then(response => response.json())
+  fetch('http://localhost:5000/team_records').then(response => response.json()),
+  fetch('http://localhost:5000/driver_records').then(response => response.json())
 ])
   .then(([teamData, driverData]) => {
     // Process team data\
