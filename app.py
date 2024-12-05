@@ -83,13 +83,12 @@ def get_driver_records():
     # Create driver records
     driver_records = []
     for i in range(len(pos)):
-        print(f"Processing driver: {fname[i]} {lname[i]}")
 
         # Skip specified drivers
-        if (fname[i] == 'Oliver' and lname[i] == 'Bearman') or \
-           (fname[i] == 'Jack' and lname[i] == 'Doohan'):
-            print(f"Skipping driver: {fname[i]} {lname[i]}")
-            continue
+        # if (fname[i] == 'Oliver' and lname[i] == 'Bearman') or \
+        #    (fname[i] == 'Jack' and lname[i] == 'Doohan'):
+        #     print(f"Skipping driver: {fname[i]} {lname[i]}")
+        #     continue
         driver_record = {
             'Pos': pos[i],
             'Pts': points[i],
