@@ -1,118 +1,101 @@
-from flask import Flask, jsonify,request
-import pickle
-import numpy as np
-import pandas as pd
+from flask import Flask, jsonify
+import requests
+from bs4 import BeautifulSoup
+import re
 from flask_cors import CORS
-winvision = pd.read_csv(r"winvision.csv")
-drivers = pd.read_csv(r"drivers.csv")
-circuits = pd.read_csv(r"archive/circuits.csv")
-
-
 app = Flask(__name__)
-CORS(app)  # This will enable CORS for all routes
-model=pickle.load(open('winvision_model.pkl','rb'))
-def prediction(driver_name, grid, circuit_loc):
-    driver = drivers.loc[drivers['Name']==driver_name, 'driverId'].iloc[0]
-    circuit = circuits.loc[circuits['location']==circuit_loc, ['circuitId']].iloc[0]
+CORS(app)
+@app.route('/team_records', methods=['GET'])
+def get_team_records():
+    # Fetch and parse team data
+    r = requests.get('https://www.formula1.com/en/teams')
+    soup = BeautifulSoup(r.content, 'html.parser')
+    s = soup.find('div', class_='flex flex-col tablet:grid tablet:grid-cols-12 [&>*]:col-span-12 tablet:[&>*]:col-span-6 gap-xl laptop:[&>*]:col-span-6 desktop:[&>*]:col-span-6')
 
-    input_data = winvision[winvision['driverId'] == driver].sort_values(by='date', ascending=False).iloc[0]
-    circuit_data = circuits[circuits['location']==circuit_loc].iloc[0]
+    imgs = s.find_all('img')
+    drivers = s.find_all('p')
+    teams = s.find_all('span')
 
-    features = {
-        'driverId': input_data['driverId'],
-        'constructorId': input_data['constructorId'],
-        'grid': grid,
-        'laps': input_data['laps'],
-        'circuitId': circuit_data['circuitId'],
-        'Constructor Experience': input_data['Constructor Experience'],
-        'Driver Experience': input_data['Driver Experience'],
-        'age': input_data['age'],
-        'driver_wins': input_data['driver_wins'],
-        'constructor_wins': input_data['constructor_wins'],
-        'prev_position': input_data['prev_position'],
-        'Driver Constructor Experience': input_data['Driver Constructor Experience'],
-        'DNF Score': input_data['DNF Score']
-        
-    }
-    features = pd.DataFrame([features])
-    predi = model.predict(features)
-    prob= model.predict_proba(features)
-    return predi,prob
-@app.route('/')
-def hello_world():
-    return "hello world"
+    img_indices = sorted(set(range(1, 40, 4)) | set(range(2, 40, 4)))
+    team_imgs = [imgs[i]['src'] for i in range(0, 40, 4)]
+    car_imgs = [imgs[i]['src'] for i in range(3, 40, 4)]
+    driver_imgs = [imgs[i]['src'] for i in img_indices]
 
-@app.route('/predict',methods=['POST','GET'])
-def predict():
-    data = request.json
-    selected_drivers = data.get('selectedDrivers')
-    circuit_loc = data.get('circuit')
-    dnfs = data.get('dnfs', [])
+    rank = [drivers[i].text for i in range(0, 70, 7)]
+    pts = [drivers[i].text for i in range(1, 70, 7)]
+    indices = sorted(set(range(3, 70, 7)) | set(range(5, 70, 7)))
+    names = [drivers[i].text + ' ' + drivers[i + 1].text for i in indices]
+    constructors = [teams[i].text for i in range(10)]
 
-    # Reload the datasets (if necessary)
-    winvision = pd.read_csv(r"winvision.csv")
-    drivers = pd.read_csv(r"drivers.csv")
-    drivers['Name'] = drivers['forename'] + ' ' + drivers['surname']
-    circuits = pd.read_csv(r"archive/circuits.csv")
+    # Extract color codes
+    res = s.find_all('div')
+    all_classes = [div.get('class') for div in res if div.get('class')]
+    codes = [cls.split('-')[1] for cls in sum(all_classes, []) if cls.startswith('text')]
+    hex_pattern = re.compile(r'^[0-9A-Fa-f]{6}$')
+    hex_codes = [code for code in codes if hex_pattern.match(code)]
 
-    # Filter out the DNF drivers
-    remaining_drivers = [driver for driver in selected_drivers if driver not in dnfs]
-    remaining_drivers += ['Dummy Driver'] * (20 - len(remaining_drivers))
-    grids = list(range(1, len(remaining_drivers) + 1))
+    # Create team records
+    records = []
+    for i in range(len(constructors)):
+        record = {
+            'Pos': rank[i],
+            'Pts': pts[i],
+            'Drivers': [names[2 * i], names[2 * i + 1]],
+            'Team': constructors[i],
+            'Driver-img': [driver_imgs[2 * i], driver_imgs[2 * i + 1]],
+            'Team-img': team_imgs[i],
+            'Car-img': car_imgs[i],
+            'Color-code': hex_codes[i]
+        }
+        records.append(record)
 
-    predictions = []
+    return jsonify(records)
 
-    # Make predictions for the remaining drivers
-    for driver_name, grid in zip(remaining_drivers, grids):
-        predi, prob = prediction(driver_name, grid, circuit_loc)
-        if predi in [1, 2, 3]:
-            probability = np.max(prob)
-            predictions.append({
-                'Driver Name': driver_name,
-                'Grid': grid,
-                'Prediction': int(predi[0]),
-                'Probability': probability
-            })
 
-    # Sort predictions by grid position and probability
-    predictions.sort(key=lambda x: (x['Prediction'], -x['Probability']))
+@app.route('/driver_records', methods=['GET'])
+def get_driver_records():
+    # Fetch and parse driver data
+    req = requests.get('https://www.formula1.com/en/drivers')
+    soup = BeautifulSoup(req.content, 'html.parser')
+    s2 = soup.find('div', class_=re.compile(r'^flex flex-col tablet:grid tablet:grid-cols-12'))
 
-    # Adjust positions if there are duplicates
-    final_predictions = []
-    last_position = 0
-    for i, pred in enumerate(predictions):
-        if i > 0 and predictions[i]['Prediction'] == predictions[i - 1]['Prediction']:
-            last_position += 1
-        else:
-            last_position = pred['Prediction']
-        final_predictions.append({
-        'Driver Name': pred['Driver Name'],
-        'Grid': pred['Grid'],
-        'Prediction': last_position,
-        'Probability': pred['Probability']
-    })
+    info = s2.find_all('p')
+    imgs2 = s2.find_all('img')
 
-# Final check to ensure only the top 3 predictions for each position are kept
-    filtered_predictions = {}
-    for pred in final_predictions:
-        pos = pred['Prediction']
-        if pos not in filtered_predictions:
-            filtered_predictions[pos] = []
-        filtered_predictions[pos].append(pred)
+    pos = [info[i].text for i in range(0, 126, 6)]
+    points = [info[i].text for i in range(1, 126, 6)]
+    fname = [info[i].text for i in range(3, 126, 6)]
+    lname = [info[i].text for i in range(4, 126, 6)]
+    team = [info[i].text for i in range(5, 126, 6)]
+    flag_img = [imgs2[i]['src'] for i in range(0, 63, 3)]
+    no_img = [imgs2[i]['src'] for i in range(1, 63, 3)]
+    driver_img = [imgs2[i]['src'] for i in range(2, 63, 3)]
 
-# Keep only the top 3 predictions for each position based on probability
-    top_predictions = []
-    for pos, preds in filtered_predictions.items():
-        preds.sort(key=lambda x: -x['Probability'])
-        top_predictions.extend(preds[:3])
+    # Extract color codes
+    res2 = s2.find_all('div')
+    all_classes2 = [div.get('class') for div in res2 if div.get('class')]
+    codes2 = [cls.split('-')[1] for cls in sum(all_classes2, []) if cls.startswith('text')]
+    hex_pattern = re.compile(r'^[0-9A-Fa-f]{6}$')
+    hex_codes2 = ["#" + code for code in codes2 if hex_pattern.match(code)]
 
-# Sort the final predictions by position and probability
-    top_predictions.sort(key=lambda x: (x['Prediction'], -x['Probability']))
+    # Create driver records
+    driver_records = []
+    for i in range(len(pos)):
+        driver_record = {
+            'Pos': pos[i],
+            'Pts': points[i],
+            'Fname': fname[i],
+            'Lname': lname[i],
+            'Team': team[i],
+            'Flag-img': flag_img[i],
+            'No-img': no_img[i],
+            'Driver-img': driver_img[i],
+            'Color-code': hex_codes2[i]
+        }
+        driver_records.append(driver_record)
 
-# Format the probabilities as percentages
-    formatted_output = [f"Driver Name: {pred['Driver Name']}, Grid: {pred['Grid']}, Prediction: {pred['Prediction']}, Probability: {pred['Probability'] * 100:.2f}%"
-    for pred in top_predictions]
-    return jsonify(formatted_output)
+    return jsonify(driver_records)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

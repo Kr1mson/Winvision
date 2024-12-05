@@ -1,5 +1,6 @@
 import requests
 import json
+import flask
 import urllib.request
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
@@ -36,21 +37,8 @@ team=[info[i].text for i in range(5,126,6)]
 flag_img=[imgs2[i]['src'] for i in range(0,63,3)]
 no_img=[imgs2[i]['src'] for i in range(1,63,3)]
 driver_img=[imgs2[i]['src'] for i in range(2,63,3)]
-def save_image(url, directory):
-    path = urlparse(url).path.split('/')[-1]
-    save_path = os.path.join(directory, path)
-    os.makedirs(directory, exist_ok=True)
-    urllib.request.urlretrieve(url,save_path)
-for url in team_imgs:
-    save_image(url, path_team)
-for url in car_imgs:
-    save_image(url, path_cars)
-for url in flag_img:
-    save_image(url, path_flag)
-for url in no_img:
-    save_image(url, path_no)
-for url in driver_img:
-    save_image(url, path_driver)
+
+
 res=s.find_all('div')
 all_classes = []
 for div in res:
@@ -93,9 +81,9 @@ for i in range(len(constructors)):
         'Pts': pts[i],
         'Drivers': [names[2*i], names[2*i + 1]],
         'Team': constructors[i],
-        'Driver-img':[urlparse(driver_imgs[2*i]).path.split('/')[-1],urlparse(driver_imgs[2*i+1]).path.split('/')[-1]],
-        'Team-img':urlparse(team_imgs[i]).path.split('/')[-1],
-        'Car-img':urlparse(car_imgs[i]).path.split('/')[-1],
+        'Driver-img':[driver_imgs[2*i],driver_imgs[2*i+1]],
+        'Team-img':team_imgs[i],
+        'Car-img':car_imgs[i],
         'Color-code':hex_codes[i]
     }
     records.append(record)
@@ -107,15 +95,14 @@ for i in range(len(pos)):
         'Fname': fname[i],
         'Lname': lname[i],
         'Team': team[i],
-        'Flag-img':[urlparse(flag_img[i]).path.split('/')[-1]],
-        'No-img':urlparse(no_img[i]).path.split('/')[-1],
-        'Driver-img':urlparse(driver_img[i]).path.split('/')[-1],
+        'Flag-img':flag_img[i],
+        'No-img':no_img[i],
+        'Driver-img':driver_img[i],
         'Color-code':hex_codes2[i]
     }
     driver_records.append(driver_record)
 
 
-# Convert the list of records to a JSON file
 with open('data/team_records.json', 'w') as json_file:
     json.dump(records, json_file, indent=4)
 with open('data/driver_records.json', 'w') as json_file:

@@ -238,15 +238,15 @@ function displayResults(results) {
       if (prediction === 1) {
           card1.querySelector('p').innerHTML = formattedText;
           card1.querySelector("h3").textContent = last3letters;
-          card1.style.backgroundImage = `url('f1_photos/driver photos/${lastName}.jpg')`;
+          card1.style.backgroundImage = `url('assets/images/f1_photos/driver photos/${lastName}.jpg')`;
       } else if (prediction === 2) {
           card2.querySelector('p').innerHTML = formattedText;
           card2.querySelector("h3").textContent = last3letters;
-          card2.style.backgroundImage = `url('f1_photos/driver photos/${lastName}.jpg')`;
+          card2.style.backgroundImage = `url('assets/images/f1_photos/driver photos/${lastName}.jpg')`;
       } else if (prediction === 3) {
           card3.querySelector('p').innerHTML = formattedText;
           card3.querySelector("h3").textContent = last3letters;
-          card3.style.backgroundImage = `url('f1_photos/driver photos/${lastName}.jpg')`;
+          card3.style.backgroundImage = `url('assets/images/f1_photos/driver photos/${lastName}.jpg')`;
       }
   });
   cardContainer.style.display = 'flex';
@@ -556,7 +556,7 @@ function sendtoapi(event) {
           jsonList.push(fullName);
         }
       }
-    });e2
+    })
   });
   var chk=document.getElementById("go-icon").src;
   if (!chk.includes("tick") || jsonList.length + dnfList.length < 20){
@@ -595,7 +595,7 @@ function sendtoapi(event) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ selectedDrivers: jsonList, circuit: circuit, dnfs: dnfList}),
+        body: JSON.stringify({ selectedDrivers: jsonList, circuit: circuit}),
     })
     .then((response) => response.json())
     .then((data) => {

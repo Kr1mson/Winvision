@@ -40,11 +40,12 @@ const teamMap = new Map();
 const driverMap = new Map();
 
 Promise.all([
-  fetch('data/team_records.json').then(response => response.json()),
-  fetch('data/driver_records.json').then(response => response.json())
+  fetch('http://localhost:5000/api/team_records').then(response => response.json()),
+  fetch('http://localhost:5000/api/driver_records').then(response => response.json())
 ])
   .then(([teamData, driverData]) => {
-    // Process team data
+    // Process team data\
+    console.log(teamData);
     teamData.forEach(team => {
       teamMap.set(team['Team'], team);
       const div = document.createElement('div');
@@ -59,7 +60,7 @@ Promise.all([
           -webkit-text-fill-color: transparent;
           -webkit-background-clip: text;">${team['Team']}</p>
         </div>
-        <img class="team-logo" src='assets/images/team-logos/${team['Team-img']}'>
+        <img class="team-logo" src='${team['Team-img']}'>
         <div class="points-container">
           <span>${team['Pts']}</span>
           <p>PTS</p>
@@ -118,9 +119,9 @@ Promise.all([
               const firstDriverData = driverMap.get(firstDriver);
               if (firstDriverData) {
                 fdriver.textContent = firstDriver;
-                fflag.src = `assets/images/flag-photos/${firstDriverData['Flag-img'][0]}`;
-                fno.src = `assets/images/driver-no-photos/${firstDriverData['No-img']}`;
-                fimg.src = `assets/images/drivers/${firstDriverData['Driver-img']}`;
+                fflag.src = `${firstDriverData['Flag-img']}`;
+                fno.src = `${firstDriverData['No-img']}`;
+                fimg.src = `${firstDriverData['Driver-img']}`;
               }
             }
 
@@ -128,14 +129,14 @@ Promise.all([
               const secondDriverData = driverMap.get(secondDriver);
               if (secondDriverData) {
                 sdriver.textContent = secondDriver;
-                sflag.src = `assets/images/flag-photos/${secondDriverData['Flag-img'][0]}`;
-                sno.src = `assets/images/driver-no-photos/${secondDriverData['No-img']}`;
-                simg.src = `assets/images/drivers/${secondDriverData['Driver-img']}`;
+                sflag.src = `${secondDriverData['Flag-img']}`;
+                sno.src = `${secondDriverData['No-img']}`;
+                simg.src = `${secondDriverData['Driver-img']}`;
               }
             }
 
-            car.src = `assets/images/cars/${teamData['Car-img']}`;
-            logo.src = `assets/images/team-logos/${teamData['Team-img']}`;
+            car.src = `${teamData['Car-img']}`;
+            logo.src = `${teamData['Team-img']}`;
             line_container.innerHTML=`<svg
               width="210mm"
               height="297mm"
