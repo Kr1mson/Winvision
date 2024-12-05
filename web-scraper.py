@@ -116,8 +116,8 @@ for i in range(len(pos)):
 
 
 # Convert the list of records to a JSON file
-with open('team_records.json', 'w') as json_file:
+with open('data/team_records.json', 'w') as json_file:
     json.dump(records, json_file, indent=4)
-with open('driver_records.json', 'w') as json_file:
+with open('data/driver_records.json', 'w') as json_file:
     json.dump(driver_records, json_file, indent=4)
 print("fin")
