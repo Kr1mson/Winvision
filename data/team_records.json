@@ -1,162 +1,162 @@
 [
     {
         "Pos": "1",
-        "Pts": "516",
+        "Pts": "640",
         "Drivers": [
             "Lando Norris",
             "Oscar Piastri"
         ],
         "Team": "McLaren",
         "Driver-img": [
-            "lannor01.png",
-            "oscpia01.png"
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANNOR01_Lando_Norris/lannor01.png",
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/O/OSCPIA01_Oscar_Piastri/oscpia01.png"
         ],
-        "Team-img": "mclaren-logo.png",
-        "Car-img": "mclaren.png",
+        "Team-img": "https://media.formula1.com/content/dam/fom-website/teams/2024/mclaren-logo.png",
+        "Car-img": "https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/mclaren.png",
         "Color-code": "FF8000"
     },
     {
         "Pos": "2",
-        "Pts": "475",
-        "Drivers": [
-            "Max Verstappen",
-            "Sergio Perez"
-        ],
-        "Team": "Red Bull Racing",
-        "Driver-img": [
-            "maxver01.png",
-            "serper01.png"
-        ],
-        "Team-img": "red-bull-racing-logo.png",
-        "Car-img": "red-bull-racing.png",
-        "Color-code": "3671C6"
-    },
-    {
-        "Pos": "3",
-        "Pts": "441",
+        "Pts": "619",
         "Drivers": [
             "Charles Leclerc",
             "Carlos Sainz"
         ],
         "Team": "Ferrari",
         "Driver-img": [
-            "chalec01.png",
-            "carsai01.png"
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CHALEC01_Charles_Leclerc/chalec01.png",
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CARSAI01_Carlos_Sainz/carsai01.png"
         ],
-        "Team-img": "ferrari-logo.png",
-        "Car-img": "ferrari.png",
+        "Team-img": "https://media.formula1.com/content/dam/fom-website/teams/2024/ferrari-logo.png",
+        "Car-img": "https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/ferrari.png",
         "Color-code": "E80020"
     },
     {
+        "Pos": "3",
+        "Pts": "581",
+        "Drivers": [
+            "Max Verstappen",
+            "Sergio Perez"
+        ],
+        "Team": "Red Bull Racing",
+        "Driver-img": [
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png",
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/S/SERPER01_Sergio_Perez/serper01.png"
+        ],
+        "Team-img": "https://media.formula1.com/content/dam/fom-website/teams/2024/red-bull-racing-logo.png",
+        "Car-img": "https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/red-bull-racing.png",
+        "Color-code": "3671C6"
+    },
+    {
         "Pos": "4",
-        "Pts": "329",
+        "Pts": "446",
         "Drivers": [
             "Lewis Hamilton",
             "George Russell"
         ],
         "Team": "Mercedes",
         "Driver-img": [
-            "lewham01.png",
-            "georus01.png"
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LEWHAM01_Lewis_Hamilton/lewham01.png",
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GEORUS01_George_Russell/georus01.png"
         ],
-        "Team-img": "mercedes-logo.png",
-        "Car-img": "mercedes.png",
+        "Team-img": "https://media.formula1.com/content/dam/fom-website/teams/2024/mercedes-logo.png",
+        "Car-img": "https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/mercedes.png",
         "Color-code": "27F4D2"
     },
     {
         "Pos": "5",
-        "Pts": "86",
+        "Pts": "92",
         "Drivers": [
             "Fernando Alonso",
             "Lance Stroll"
         ],
         "Team": "Aston Martin",
         "Driver-img": [
-            "feralo01.png",
-            "lanstr01.png"
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FERALO01_Fernando_Alonso/feralo01.png",
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANSTR01_Lance_Stroll/lanstr01.png"
         ],
-        "Team-img": "aston-martin-logo.png",
-        "Car-img": "aston-martin.png",
+        "Team-img": "https://media.formula1.com/content/dam/fom-website/teams/2024/aston-martin-logo.png",
+        "Car-img": "https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/aston-martin.png",
         "Color-code": "229971"
     },
     {
         "Pos": "6",
-        "Pts": "34",
+        "Pts": "59",
         "Drivers": [
-            "Yuki Tsunoda",
-            "Daniel Ricciardo"
+            "Pierre Gasly",
+            "Jack Doohan"
         ],
-        "Team": "RB",
+        "Team": "Alpine",
         "Driver-img": [
-            "yuktsu01.png",
-            "danric01.png"
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/P/PIEGAS01_Pierre_Gasly/piegas01.png",
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/J/JACDOO01_Jack_Doohan/jacdoo01.png"
         ],
-        "Team-img": "rb-logo.png",
-        "Car-img": "rb.png",
-        "Color-code": "6692FF"
+        "Team-img": "https://media.formula1.com/content/dam/fom-website/teams/2024/alpine-logo.png",
+        "Car-img": "https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/alpine.png",
+        "Color-code": "0093CC"
     },
     {
         "Pos": "7",
-        "Pts": "31",
+        "Pts": "54",
         "Drivers": [
             "Nico Hulkenberg",
             "Kevin Magnussen"
         ],
         "Team": "Haas",
         "Driver-img": [
-            "nichul01.png",
-            "kevmag01.png"
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/N/NICHUL01_Nico_Hulkenberg/nichul01.png",
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/K/KEVMAG01_Kevin_Magnussen/kevmag01.png"
         ],
-        "Team-img": "haas-logo.png",
-        "Car-img": "haas.png",
+        "Team-img": "https://media.formula1.com/content/dam/fom-website/teams/2024/haas-logo.png",
+        "Car-img": "https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/haas.png",
         "Color-code": "B6BABD"
     },
     {
         "Pos": "8",
-        "Pts": "16",
+        "Pts": "46",
+        "Drivers": [
+            "Yuki Tsunoda",
+            "Liam Lawson"
+        ],
+        "Team": "RB",
+        "Driver-img": [
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/Y/YUKTSU01_Yuki_Tsunoda/yuktsu01.png",
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LIALAW01_Liam_Lawson/lialaw01.png"
+        ],
+        "Team-img": "https://media.formula1.com/content/dam/fom-website/teams/2024/rb-logo.png",
+        "Car-img": "https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/rb.png",
+        "Color-code": "6692FF"
+    },
+    {
+        "Pos": "9",
+        "Pts": "17",
         "Drivers": [
             "Alexander Albon",
             "Franco Colapinto"
         ],
         "Team": "Williams",
         "Driver-img": [
-            "alealb01.png",
-            "fracol01.png"
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/A/ALEALB01_Alexander_Albon/alealb01.png",
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FRACOL01_Franco_Colapinto/fracol01.png"
         ],
-        "Team-img": "williams-logo.png",
-        "Car-img": "williams.png",
+        "Team-img": "https://media.formula1.com/content/dam/fom-website/teams/2024/williams-logo.png",
+        "Car-img": "https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/williams.png",
         "Color-code": "64C4FF"
     },
     {
-        "Pos": "9",
-        "Pts": "13",
-        "Drivers": [
-            "Pierre Gasly",
-            "Esteban Ocon"
-        ],
-        "Team": "Alpine",
-        "Driver-img": [
-            "piegas01.png",
-            "estoco01.png"
-        ],
-        "Team-img": "alpine-logo.png",
-        "Car-img": "alpine.png",
-        "Color-code": "0093CC"
-    },
-    {
         "Pos": "10",
-        "Pts": "0",
+        "Pts": "4",
         "Drivers": [
             "Valtteri Bottas",
             "Zhou Guanyu"
         ],
         "Team": "Kick Sauber",
         "Driver-img": [
-            "valbot01.png",
-            "guazho01.png"
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/V/VALBOT01_Valtteri_Bottas/valbot01.png",
+            "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GUAZHO01_Guanyu_Zhou/guazho01.png"
         ],
-        "Team-img": "kick-sauber-logo.png",
-        "Car-img": "kick-sauber.png",
+        "Team-img": "https://media.formula1.com/content/dam/fom-website/teams/2024/kick-sauber-logo.png",
+        "Car-img": "https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/kick-sauber.png",
         "Color-code": "52E252"
     }
 ]
