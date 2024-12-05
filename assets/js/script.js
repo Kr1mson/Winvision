@@ -421,7 +421,9 @@ drivers.forEach((driver,index) => {
   const toggle=document.createElement("div");
 
   toggle.className = 'dnf-toggle';
-  toggle.innerHTML = `<input type="checkbox" id="${toggleId}" class="tgl tgl-skewed"><label for="${toggleId}" data-tg-on="DNF" data-tg-off="Bdia" class="tgl-btn"></label>`;
+  toggle.innerHTML = `
+  <input type="checkbox" id="${toggleId}" class="tgl tgl-skewed">
+    <label for="${toggleId}" data-tg-on="DNF" data-tg-off="Clear" class="tgl-btn"></label>`;
   dname.appendChild(fname);
   dname.appendChild(lname);
 
