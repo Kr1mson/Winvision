@@ -395,7 +395,15 @@ body{
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   font-size: 30px;
+  transition: background 1s ease;
 }
+.text-wrapper span:hover{
+  background: linear-gradient(to right , #FFFFFF,#E10600);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+
+}
+
 .race-stripe-container {
   position: relative;
   overflow: hidden;
@@ -486,4 +494,3 @@ body{
   transform: scale(0.9);
   fill: #333333;
 }
-
